@@ -2,20 +2,16 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        padding: 20,
-        backgroundColor: "beige",
-      }}
-    >
-      <span>SweetCollectiveCo</span>
-      <div>
-        <span style={{ marginRight: 5 }}>Home</span>
-        <span style={{ marginRight: 5 }}>About</span>
-        <span style={{ marginRight: 5 }}>Contact</span>
+    <div className="">
+      <div className="container mx-auto">
+        <div className="py-5 flex flex-row justify-between  w-full">
+          <span>SweetCollectiveCo</span>
+          <div className="inline">
+            <span className="mr-2">Home</span>
+            <span className="mr-2">About</span>
+            <span className="mr-2">Contact</span>
+          </div>
+        </div>
       </div>
     </div>
   );
