@@ -1,15 +1,17 @@
+import Small from "components/Small";
 import React from "react";
 
 export default function Navbar() {
   return (
-    <div className="">
+    <div className="border-b">
       <div className="container mx-auto">
-        <div className="py-5 flex flex-row justify-between  w-full">
-          <span>SweetCollectiveCo</span>
+        <div className="p-5 flex flex-row justify-between  w-full">
+          <Small className="font-bold">SWEETCOLLECTIVECO</Small>
           <div className="inline">
-            <span className="mr-2">Home</span>
-            <span className="mr-2">About</span>
-            <span className="mr-2">Contact</span>
+            <Small className="mr-3 font-bold">FAQ</Small>
+            <Small className="mr-3 font-bold">Support</Small>
+            <Small className="mr-3 font-bold">About Us</Small>
+            <Small className="mr-3 font-bold">Contact</Small>
           </div>
         </div>
       </div>
