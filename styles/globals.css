@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap");
+
 html,
 body {
   padding: 0;
@@ -17,4 +19,28 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Merriweather", serif;
+}
+
+.theme-color-primary {
+  color: #f2dfce !important;
+}
+
+.gucci-text-yellow {
+  color: #bd9302;
+}
+
+.gucci-text-green {
+  color: #0a6a56;
+}
+
+.gucci-bg-green {
+  background-color: #0a6a56;
+}
+
+.gucci-text-red {
+  color: #a82b11;
 }

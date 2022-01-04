@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="p-10 text-white gucci-bg-green">
       <div className="container mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4">
           <div className="footer-col">
@@ -48,7 +48,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="text-xs text-gray-400 text-center my-5">
+          <p className="text-xs text-gray-200 text-center my-5">
             Copyright (C) 2021 by Arc Ranges. All Rights Reserved.
           </p>
         </div>

@@ -1,5 +1,9 @@
-export default function Small({ className, children }) {
+export default function Small({ className = "", children, bold = false }) {
   return (
-    <span className={`text-xs uppercase mb-2 ${className}`}>{children}</span>
+    <span
+      className={`text-xs uppercase ${bold ? "font-bold" : ""} ${className}`}
+    >
+      {children}
+    </span>
   );
 }

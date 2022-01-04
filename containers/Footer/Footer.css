@@ -1,10 +1,4 @@
-footer {
-  background-color: #183333;
-  color: white;
-  padding: 2rem;
-}
-
 .footer-links-container li {
-  color: darkgrey;
+  color: lightgrey;
   margin-bottom: 0.5rem;
 }
