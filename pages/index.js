@@ -7,6 +7,7 @@ import { themeColors } from "settings/theme";
 import sampleProduct from "assets/sample-product.png";
 import womenImg from "assets/women.png";
 import Image from "next/image";
+import ProductCard from "components/ProductCard";
 
 export default function Home({ posts }) {
   return (
@@ -85,7 +86,7 @@ export default function Home({ posts }) {
       </div>
 
       <div>
-        <Container>
+        <Container className="border-b border-gray-200">
           <div className="w-full py-20">
             <div className="grid grid-cols-2">
               <div className="">
@@ -115,6 +116,67 @@ export default function Home({ posts }) {
               </div>
             </div>
           </div>
+        </Container>
+      </div>
+
+      <div>
+        <Container className="my-10">
+          <h1 className="text-5xl">Hottest Products</h1>
+          <div className="grid md:grid-cols-4 gap-8 py-10">
+            <ProductCard
+              tag="Earring"
+              imgSrc="https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg"
+              title="FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho"
+              price="37.99"
+            />
+            <ProductCard
+              tag="Studs"
+              imgSrc="https://i.etsystatic.com/24311168/r/il/3625b5/3230346094/il_680x540.3230346094_mta3.jpg"
+              title="FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho"
+              price="37.99"
+            />
+            <ProductCard
+              tag="Earring"
+              imgSrc="https://i.etsystatic.com/24311168/r/il/401bdb/3278081893/il_340x270.3278081893_ijod.jpg"
+              title="WILLOW Dangles |Polymer Clay Earrings | Statement Earring Simple, Stainless Steel, Dangle Clay Hypoallergenic Jewelry | Ceramic Jewelry Gift"
+              price="32.99"
+            />
+            <ProductCard
+              tag="Earring"
+              imgSrc="https://i.etsystatic.com/24311168/r/il/489995/3058739123/il_340x270.3058739123_qwek.jpg"
+              title="Shell Trinket Dish | Sea Shell Candle Dish | Handmade Jesmonite Sea Shell Trinket Tray | Jewellery Dish | Gift for Her | Ceramic Decoration"
+              price="29.99"
+            />
+            <ProductCard
+              tag="Earring"
+              imgSrc="https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg"
+              title="FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho"
+              price="37.99"
+            />
+            <ProductCard
+              tag="Studs"
+              imgSrc="https://i.etsystatic.com/24311168/r/il/3625b5/3230346094/il_680x540.3230346094_mta3.jpg"
+              title="FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho"
+              price="37.99"
+            />
+            <ProductCard
+              tag="Earring"
+              imgSrc="https://i.etsystatic.com/24311168/r/il/401bdb/3278081893/il_340x270.3278081893_ijod.jpg"
+              title="WILLOW Dangles |Polymer Clay Earrings | Statement Earring Simple, Stainless Steel, Dangle Clay Hypoallergenic Jewelry | Ceramic Jewelry Gift"
+              price="32.99"
+            />
+            <ProductCard
+              tag="Earring"
+              imgSrc="https://i.etsystatic.com/24311168/r/il/489995/3058739123/il_340x270.3058739123_qwek.jpg"
+              title="Shell Trinket Dish | Sea Shell Candle Dish | Handmade Jesmonite Sea Shell Trinket Tray | Jewellery Dish | Gift for Her | Ceramic Decoration"
+              price="29.99"
+            />
+          </div>
+          <p className="block text-center">
+            <Small bold className="cursor-pointer">
+              View More
+            </Small>
+          </p>
         </Container>
       </div>
     </Layout>

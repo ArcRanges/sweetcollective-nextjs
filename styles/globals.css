@@ -32,6 +32,9 @@ h1 {
 .gucci-text-yellow {
   color: #bd9302;
 }
+.gucci-bg-yellow {
+  background-color: #bd9302;
+}
 
 .gucci-text-green {
   color: #0a6a56;
@@ -43,4 +46,7 @@ h1 {
 
 .gucci-text-red {
   color: #a82b11;
+}
+.gucci-bg-red {
+  background-color: #a82b11;
 }
