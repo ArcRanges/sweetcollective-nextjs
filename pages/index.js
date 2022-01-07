@@ -9,7 +9,8 @@ import womenImg from "assets/women.png";
 import Image from "next/image";
 import ProductCard from "components/ProductCard";
 
-export default function Home({ posts }) {
+// export default function Home({ posts }) {
+export default function Home() {
   return (
     <Layout>
       <div style={{ backgroundColor: themeColors.primary }}>
@@ -183,12 +184,12 @@ export default function Home({ posts }) {
   );
 }
 
-export async function getStaticProps() {
-  const { data: posts } = await (
-    await fetch(`${BASE_API_URL}/api/posts?populate=author`)
-  ).json();
+// export async function getStaticProps() {
+//   const { data: posts } = await (
+//     await fetch(`${BASE_API_URL}/api/posts?populate=author`)
+//   ).json();
 
-  return {
-    props: { posts },
-  };
-}
+//   return {
+//     props: { posts },
+//   };
+// }
