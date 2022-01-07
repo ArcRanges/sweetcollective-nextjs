@@ -5,10 +5,9 @@ phases:
     commands:
       - echo Installing dependency...
       - curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-      - nvm install 16.13.0
-      - nvm install node
-      - npm install -g next
-      - yarn
+      - sudo nvm install 16.13.0
+      - sudo nvm install node
+      - sudo npm install -g next
   pre_build:
     commands:
       - printenv > .env
