@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /home/ec2-user/app-front-end
+cd /home/ec2-user/app-frontend
 npm install
 npm install pm2
