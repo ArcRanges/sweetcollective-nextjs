@@ -2,22 +2,25 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 12
+
     commands:
-      - echo Installing dependency...
-      - curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-      - sudo nvm install 16.13.0
-      - sudo nvm install node
-      - sudo npm install -g next
-  pre_build:
-    commands:
-      - printenv > .env
+      # install npm
+      - npm install
+
   build:
     commands:
-      - echo Compiling the Node.js code
-      - next build
-  post_build:
-    commands:
-      - echo Build completed on `date`
+      # run build script
+      - npm build
+
 artifacts:
+  # include all files required to run application
+  # notably excluded is node_modules, as this will cause overwrite error on deploy
   files:
-    - "**/*"
+    - .next/**/*
+    - public/**/*
+    - src/**/*
+    - package.json
+    - appspec.yml
+    - scripts/**/*
