@@ -2,7 +2,7 @@ import Small from "./Small";
 
 export default function ProductCard({ tag, title, imgSrc, price, id }) {
   return (
-    <div className="border cursor-pointer border-gray-200 hover:shadow-lg p-6 transition duration-200 ease-linear">
+    <div className="w-auto border cursor-pointer border-gray-200 hover:shadow-lg p-6 transition duration-200 ease-linear">
       <Small className="text-white py-1 px-2 rounded gucci-bg-yellow mb-2">
         {tag}
       </Small>

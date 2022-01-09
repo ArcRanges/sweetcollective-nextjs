@@ -13,10 +13,13 @@ import ProductCard from "components/ProductCard";
 export default function Home() {
   return (
     <Layout>
-      <div style={{ backgroundColor: themeColors.primary }}>
+      <div
+        className="px-5 md:px-10"
+        style={{ backgroundColor: themeColors.primary }}
+      >
         <Container>
           <div className="w-full py-20">
-            <div className="grid grid-cols-2">
+            <div className="grid md:grid-cols-2">
               <div className="">
                 <Small bold className="block mb-4 gucci-text-red">
                   New Collection
@@ -39,7 +42,7 @@ export default function Home() {
                   </div>
                 </button>
               </div>
-              <div className="">
+              <div className="!hidden md:!block">
                 <Image src={sampleProduct} height="500" width="500" />
               </div>
             </div>
@@ -50,7 +53,7 @@ export default function Home() {
       <div className="bg-gray-100">
         <Container>
           <div className="px-20 py-10">
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
               <div className="flex flex-col items-center">
                 <i className="uil uil-plane mr-2 mb-2 text-gray-700 text-2xl"></i>
                 <Small bold className="mb-2 text-gray-700">
@@ -86,15 +89,15 @@ export default function Home() {
         </Container>
       </div>
 
-      <div>
+      <div className="px-5 md:px-10">
         <Container className="border-b border-gray-200">
           <div className="w-full py-20">
-            <div className="grid grid-cols-2">
+            <div className="grid md:grid-cols-2">
               <div className="">
                 <Small bold className="block mb-4 gucci-text-red">
                   Our Story
                 </Small>
-                <h1 className="text-5xl mb-4 w-1/2">CARED FOR SINCE 2021</h1>
+                <h1 className="text-5xl mb-4 md:w-1/2">CARED FOR SINCE 2021</h1>
                 <p className="mb-4">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Nulla
@@ -112,7 +115,7 @@ export default function Home() {
                   </div>
                 </button>
               </div>
-              <div className="text-center">
+              <div className="text-center hidden md:block">
                 <Image src={womenImg} height="400" width="400" />
               </div>
             </div>
@@ -120,10 +123,10 @@ export default function Home() {
         </Container>
       </div>
 
-      <div>
+      <div className="px-5 md:px-10">
         <Container className="my-10">
           <h1 className="text-5xl">Hottest Products</h1>
-          <div className="grid md:grid-cols-4 gap-8 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 py-10">
             <ProductCard
               tag="Earring"
               imgSrc="https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg"
