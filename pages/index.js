@@ -8,6 +8,7 @@ import sampleProduct from "assets/sample-product.png";
 import womenImg from "assets/women.png";
 import Image from "next/image";
 import ProductCard from "components/ProductCard";
+import Link from "next/link";
 
 // export default function Home({ posts }) {
 export default function Home() {
@@ -34,13 +35,15 @@ export default function Home() {
                   sagittis iaculis leo, ac vehicula libero. augue.
                 </p>
 
-                <button className="bg-black text-white py-2 px-4 hover:opacity-50 transition duration-200 ease-linear">
-                  <div className="flex flex-row items-center">
-                    <Small className="mb-0">SHOP NOW</Small>
-                    &nbsp;
-                    <i className="uil uil-arrow-right text-lg"></i>
-                  </div>
-                </button>
+                <Link href="/shop">
+                  <button className="bg-black text-white py-2 px-4 hover:opacity-50 transition duration-200 ease-linear">
+                    <div className="flex flex-row items-center">
+                      <Small className="mb-0">SHOP NOW</Small>
+                      &nbsp;
+                      <i className="uil uil-arrow-right text-lg"></i>
+                    </div>
+                  </button>
+                </Link>
               </div>
               <div className="!hidden md:!block">
                 <Image src={sampleProduct} height="500" width="500" />
@@ -90,7 +93,7 @@ export default function Home() {
       </div>
 
       <div className="px-5 md:px-10">
-        <Container className="border-b border-gray-200">
+        <Container className="md:border-b border-gray-200">
           <div className="w-full py-20">
             <div className="grid md:grid-cols-2">
               <div className="">
@@ -107,13 +110,15 @@ export default function Home() {
                   sagittis iaculis leo, ac vehicula libero. augue.
                 </p>
 
-                <button className="bg-black text-white py-2 px-4 hover:opacity-50 transition duration-200 ease-linear">
-                  <div className="flex flex-row items-center">
-                    <Small className="mb-0">SHOP NOW</Small>
-                    &nbsp;
-                    <i className="uil uil-arrow-right text-lg"></i>
-                  </div>
-                </button>
+                <Link href="/shop">
+                  <button className="bg-black text-white py-2 px-4 hover:opacity-50 transition duration-200 ease-linear">
+                    <div className="flex flex-row items-center">
+                      <Small className="mb-0">SHOP NOW</Small>
+                      &nbsp;
+                      <i className="uil uil-arrow-right text-lg"></i>
+                    </div>
+                  </button>
+                </Link>
               </div>
               <div className="text-center hidden md:block">
                 <Image src={womenImg} height="400" width="400" />
