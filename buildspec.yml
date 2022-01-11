@@ -21,6 +21,7 @@ artifacts:
     - assets/**/*
     - components/**/*
     - containers/**/*
+    - mock/**/*
     - pages/**/*
     - public/**/*
     - scripts/**/*
