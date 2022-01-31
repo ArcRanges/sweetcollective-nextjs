@@ -9,8 +9,16 @@ import Image from "next/image";
 import Small from "components/Small";
 import Icon from "components/Icon";
 import ProductCard from "components/ProductCard";
+import { useState } from "react";
+import Tabs from "components/Tabs";
+import Tab from "components/Tabs/Tab";
 
 export default function Product() {
+  const [state, setState] = useState({
+    selectedTabIndex: 0,
+  });
+  const { selectedTabIndex } = state;
+
   const relatedProducts = [...products].splice(0, 4);
   const { id, url, title, price, tags, description }: any = {
     id: 1,
@@ -69,16 +77,33 @@ export default function Product() {
         <div className="border-t border-b py-10">
           <div className="flex flex-row justify-center">
             <div className="mr-10">
-              <span className="cursor-pointer text-2xl">Description</span>
+              <span
+                className={`cursor-pointer text-2xl ${
+                  selectedTabIndex !== 0 ? "text-gray-300" : "text-black"
+                } hover:opacity-70`}
+                onClick={() => setState({ ...state, selectedTabIndex: 0 })}
+              >
+                Description
+              </span>
             </div>
             <div className="mr-10">
-              <span className="cursor-pointer text-2xl text-gray-300">
+              <span
+                className={`cursor-pointer text-2xl ${
+                  selectedTabIndex !== 1 ? "text-gray-300" : "text-black"
+                } hover:opacity-70`}
+                onClick={() => setState({ ...state, selectedTabIndex: 1 })}
+              >
                 More Information
               </span>
             </div>
             <div>
               {" "}
-              <span className="cursor-pointer text-2xl text-gray-300">
+              <span
+                className={`cursor-pointer text-2xl ${
+                  selectedTabIndex !== 2 ? "text-gray-300" : "text-black"
+                } hover:opacity-70`}
+                onClick={() => setState({ ...state, selectedTabIndex: 2 })}
+              >
                 Reviews
               </span>
             </div>
@@ -87,27 +112,69 @@ export default function Product() {
 
         <div className="py-10">
           <div className="grid md:grid-cols-2 gap-16">
-            <div>
-              <p className="font-bold text-xl mb-3">Introduction</p>
-              <p className="mb-3">
-                With ultralight, quality cotton canvas, the JanSport Houston
-                backpack is ideal for a life-on-the-go. This backpack features
-                premium faux leather bottom and trim details, padded 15 in
-                laptop sleeve and tricot lined tablet sleeve
-              </p>
-              <p className="mb-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus
-                mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum
-                dolor sit amet, consectetur adipiscing elit.Vivamus mollis
-                venenatis mi, ac luctus ipsum finibus et.
-              </p>
-              <p className="mb-3">
-                With ultralight, quality cotton canvas, the JanSport Houston
-                backpack is ideal for a life-on-the-go. This backpack features
-                premium faux leather bottom and trim details, padded 15 in
-                laptop sleeve and tricot lined tablet sleeve
-              </p>
-            </div>
+            <Tabs activeTabIndex={selectedTabIndex}>
+              <Tabs.Tab title="Description">
+                <p className="mb-3">
+                  With ultralight, quality cotton canvas, the JanSport Houston
+                  backpack is ideal for a life-on-the-go. This backpack features
+                  premium faux leather bottom and trim details, padded 15 in
+                  laptop sleeve and tricot lined tablet sleeve
+                </p>
+                <p className="mb-3">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.
+                </p>
+                <p className="mb-3">
+                  With ultralight, quality cotton canvas, the JanSport Houston
+                  backpack is ideal for a life-on-the-go. This backpack features
+                  premium faux leather bottom and trim details, padded 15 in
+                  laptop sleeve and tricot lined tablet sleeve
+                </p>
+              </Tabs.Tab>
+              <Tabs.Tab title="More Information">
+                <p className="mb-3">
+                  With ultralight, quality cotton canvas, the JanSport Houston
+                  backpack is ideal for a life-on-the-go. This backpack features
+                  premium faux leather bottom and trim details, padded 15 in
+                  laptop sleeve and tricot lined tablet sleeve
+                </p>
+                <p className="mb-3">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.
+                </p>
+                <p className="mb-3">
+                  With ultralight, quality cotton canvas, the JanSport Houston
+                  backpack is ideal for a life-on-the-go. This backpack features
+                  premium faux leather bottom and trim details, padded 15 in
+                  laptop sleeve and tricot lined tablet sleeve
+                </p>
+              </Tabs.Tab>
+              <Tabs.Tab title="Reviews">
+                <p className="mb-3">
+                  With ultralight, quality cotton canvas, the JanSport Houston
+                  backpack is ideal for a life-on-the-go. This backpack features
+                  premium faux leather bottom and trim details, padded 15 in
+                  laptop sleeve and tricot lined tablet sleeve
+                </p>
+                <p className="mb-3">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.
+                </p>
+                <p className="mb-3">
+                  With ultralight, quality cotton canvas, the JanSport Houston
+                  backpack is ideal for a life-on-the-go. This backpack features
+                  premium faux leather bottom and trim details, padded 15 in
+                  laptop sleeve and tricot lined tablet sleeve
+                </p>
+              </Tabs.Tab>
+            </Tabs>
+
             <div className="flex justify-center">
               <img src="https://demo3.drfuri.com/supro/wp-content/uploads/sites/3/2018/05/6b-470x600.jpg" />
             </div>
