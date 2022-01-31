@@ -3,7 +3,7 @@ import PageHeader from "components/PageHeader";
 import Layout from "containers/Layout/Layout";
 import { BASE_API_URL } from "settings/constants";
 
-import products from "mock/products";
+import products from "mock/products.json";
 import Button from "components/Button";
 import Image from "next/image";
 import Small from "components/Small";
@@ -12,7 +12,7 @@ import ProductCard from "components/ProductCard";
 
 export default function Product() {
   const relatedProducts = [...products].splice(0, 4);
-  const { id, url, title, price, tags, description } = {
+  const { id, url, title, price, tags, description }: any = {
     id: 1,
     url: "https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg",
     title:
@@ -118,8 +118,8 @@ export default function Product() {
           <p className="font-bold text-xl mb-3 text-center">Related Products</p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {relatedProducts.map(({ url, ...rest }) => (
-              <ProductCard imgSrc={url} {...rest} />
+            {relatedProducts.map(({ url, ...rest }, key) => (
+              <ProductCard imgSrc={url} {...rest} key={key} />
             ))}
           </div>
         </div>

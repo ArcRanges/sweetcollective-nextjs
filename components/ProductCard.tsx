@@ -2,7 +2,7 @@ import Link from "next/link";
 import Icon from "./Icon";
 import Small from "./Small";
 
-export default function ProductCard({ tag, title, imgSrc, price, slug }) {
+export default function ProductCard({ tag, title, imgSrc, price, slug }: any) {
   return (
     <Link href={`/product/${slug}`}>
       <div className="w-auto border cursor-pointer border-gray-200 hover:shadow-lg p-6 transition duration-200 ease-linear max-w-sm">
