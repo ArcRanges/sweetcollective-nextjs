@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Tab from "./Tab";
 
-export default function Tabs({ activeTabIndex, children }) {
+export default function Tabs({ activeTabIndex, children }: any) {
   if (!children) throw new Error("Children is required for this component");
 
   if (Object.keys(children).length === 1) {
