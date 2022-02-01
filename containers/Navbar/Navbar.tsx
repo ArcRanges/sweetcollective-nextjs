@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <div className="shadow">
       <div className="container mx-auto">
-        <div className="px-5 md:px-10 lg:px-0 py-5 flex flex-row justify-between items-center w-full">
+        <div className="px-5 md:px-10 xl:px-0 py-5 flex flex-row justify-between items-center w-full">
           <div className="flex flex-row justify-between items-center">
             <Icon name="bars" className="md:hidden" />
             <AppLink className="!pb-0 md:pb-2 !border-0 ml-2 md:ml-0" href="/">
