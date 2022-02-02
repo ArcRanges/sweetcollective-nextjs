@@ -23,6 +23,7 @@ artifacts:
   # notably excluded is node_modules, as this will cause overwrite error on deploy
   files:
     - next/**/*
+    - scripts/**/*
     - package.json
     - appspec.yml
     - next.config.js
