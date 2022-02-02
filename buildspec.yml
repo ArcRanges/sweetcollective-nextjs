@@ -20,3 +20,4 @@ artifacts:
   files:
     - .next/**/*
     - package.json
+    - appspec.yml
