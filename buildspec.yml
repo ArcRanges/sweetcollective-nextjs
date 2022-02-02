@@ -12,13 +12,20 @@ phases:
   build:
     commands:
       # run build script
-      - npm build
+      - npm run build
+
+  post_build:
+    commands:
+      - mv .next next
 
 artifacts:
   # include all files required to run application
   # notably excluded is node_modules, as this will cause overwrite error on deploy
   files:
-    - .next/**/*
+    - next/**/*
     - package.json
     - appspec.yml
-    - scripts/**/*
+    - next.config.js
+cache:
+  paths:
+    - node_modules/**/*

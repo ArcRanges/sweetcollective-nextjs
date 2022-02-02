@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /home/ec2-user/app-frontend
-npm run build
+# npm run build
 pm2 start "npm run start" --name sweetcollective
 pm2 startup
 pm2 save
