@@ -21,3 +21,4 @@ artifacts:
     - .next/**/*
     - package.json
     - appspec.yml
+    - scripts/**/*
