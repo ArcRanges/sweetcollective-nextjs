@@ -12,23 +12,11 @@ phases:
   build:
     commands:
       # run build script
-      - npm build
+      - npm run build
 
 artifacts:
   # include all files required to run application
   # notably excluded is node_modules, as this will cause overwrite error on deploy
   files:
-    - assets/**/*
-    - components/**/*
-    - containers/**/*
-    - mock/**/*
-    - pages/**/*
-    - public/**/*
-    - scripts/**/*
-    - settings/**/*
-    - styles/**/*
-    - tsconfig.json
+    - .next/**/*
     - package.json
-    - appspec.yml
-    - postcss.config.js
-    - tailwind.config.js
