@@ -27,7 +27,7 @@ artifacts:
     - scripts/**/*
     - settings/**/*
     - styles/**/*
-    - jsconfig.json
+    - tsconfig.json
     - package.json
     - appspec.yml
     - postcss.config.js
