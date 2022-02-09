@@ -22,7 +22,7 @@ module.exports = withAntdLess({
 
   reactStrictMode: true,
   images: {
-    domains: ["i.etsystatic.com"],
+    domains: ["i.etsystatic.com", "www.shingirl.com"],
   },
 
   webpack(config) {

@@ -12,6 +12,7 @@ import ProductCard from "components/ProductCard";
 import { useState } from "react";
 import Tabs from "components/Tabs";
 import Tab from "components/Tabs/Tab";
+import AppLink from "components/AppLink";
 
 export default function Product() {
   const [state, setState] = useState({
@@ -31,6 +32,8 @@ export default function Product() {
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.",
   };
+
+  const isActiveTab = (index: number) => selectedTabIndex === index;
 
   return (
     <Layout>
@@ -77,35 +80,61 @@ export default function Product() {
         <div className="border-t border-b py-10">
           <div className="flex flex-row justify-center">
             <div className="mr-10">
-              <span
-                className={`cursor-pointer text-2xl ${
-                  selectedTabIndex !== 0 ? "text-gray-300" : "text-black"
-                } hover:opacity-70`}
-                onClick={() => setState({ ...state, selectedTabIndex: 0 })}
+              <AppLink
+                href="#"
+                className={`${
+                  isActiveTab(0)
+                    ? "hover:!opacity-100 border-b-2 border-yellow-700"
+                    : ""
+                }`}
               >
-                Description
-              </span>
+                <span
+                  className={`cursor-pointer text-2xl ${
+                    !isActiveTab(0) ? "text-gray-300" : "text-black"
+                  } `}
+                  onClick={() => setState({ ...state, selectedTabIndex: 0 })}
+                >
+                  Description
+                </span>
+              </AppLink>
             </div>
             <div className="mr-10">
-              <span
-                className={`cursor-pointer text-2xl ${
-                  selectedTabIndex !== 1 ? "text-gray-300" : "text-black"
-                } hover:opacity-70`}
-                onClick={() => setState({ ...state, selectedTabIndex: 1 })}
+              <AppLink
+                href="#"
+                className={`${
+                  isActiveTab(1)
+                    ? "hover:!opacity-100 border-b-2 border-yellow-700"
+                    : ""
+                }`}
               >
-                More Information
-              </span>
+                <span
+                  className={`cursor-pointer text-2xl ${
+                    !isActiveTab(1) ? "text-gray-300" : "text-black"
+                  }`}
+                  onClick={() => setState({ ...state, selectedTabIndex: 1 })}
+                >
+                  More Information
+                </span>
+              </AppLink>
             </div>
             <div>
-              {" "}
-              <span
-                className={`cursor-pointer text-2xl ${
-                  selectedTabIndex !== 2 ? "text-gray-300" : "text-black"
-                } hover:opacity-70`}
-                onClick={() => setState({ ...state, selectedTabIndex: 2 })}
+              <AppLink
+                href="#"
+                className={`${
+                  isActiveTab(2)
+                    ? "hover:!opacity-100 border-b-2 border-yellow-700"
+                    : ""
+                }`}
               >
-                Reviews
-              </span>
+                <span
+                  className={`cursor-pointer text-2xl ${
+                    !isActiveTab(2) ? "text-gray-300" : "text-black"
+                  }`}
+                  onClick={() => setState({ ...state, selectedTabIndex: 2 })}
+                >
+                  Reviews
+                </span>
+              </AppLink>
             </div>
           </div>
         </div>
