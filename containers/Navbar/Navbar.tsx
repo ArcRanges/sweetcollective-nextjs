@@ -16,19 +16,22 @@ export default function Navbar() {
             </AppLink>
           </div>
           <div className="hidden md:inline">
-            <AppLink className="mx-2" href="/shop">
+            <AppLink className="mx-2 text-black hover:text-black" href="/shop">
               <Small className="font-bold">Shop</Small>
             </AppLink>
-            <AppLink className="mx-2" href="/blog">
+            <AppLink className="mx-2 text-black hover:text-black" href="/blog">
               <Small className="font-bold">Blog</Small>
             </AppLink>
-            <AppLink className="mx-2" href="/faq">
+            <AppLink className="mx-2 text-black hover:text-black" href="/faq">
               <Small className="font-bold">FAQ</Small>
             </AppLink>
-            <AppLink className="mx-2" href="/support">
+            <AppLink
+              className="mx-2 text-black hover:text-black"
+              href="/support"
+            >
               <Small className="font-bold">Support</Small>
             </AppLink>
-            <AppLink className="ml-2" href="/about">
+            <AppLink className="ml-2 text-black hover:text-black" href="/about">
               <Small className="font-bold">About Us</Small>
             </AppLink>
           </div>
