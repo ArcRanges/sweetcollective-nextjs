@@ -4,7 +4,7 @@ import ProductCard from "components/ProductCard";
 import Layout from "containers/Layout/Layout";
 import React from "react";
 
-import products from "mock/products";
+import products from "mock/products.json";
 
 export default function Shop() {
   return (
@@ -67,11 +67,11 @@ export default function Shop() {
 
           <div className="col-span-4 md:col-span-3">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 pb-10">
-              {products.map(({ url, ...rest }) => (
-                <ProductCard imgSrc={url} {...rest} />
+              {products.map(({ url, ...rest }, index) => (
+                <ProductCard imgSrc={url} {...rest} key={index} />
               ))}
-              {products.map(({ url, ...rest }) => (
-                <ProductCard imgSrc={url} {...rest} />
+              {products.map(({ url, ...rest }, index) => (
+                <ProductCard imgSrc={url} {...rest} key={index} />
               ))}
             </div>
           </div>

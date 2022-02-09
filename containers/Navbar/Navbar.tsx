@@ -25,11 +25,11 @@ export default function Navbar() {
             <AppLink className="mx-2" href="/faq">
               <Small className="font-bold">FAQ</Small>
             </AppLink>
-            <AppLink className="mx-2" href="/support">
-              <Small className="font-bold">Support</Small>
-            </AppLink>
             <AppLink className="ml-2" href="/about">
               <Small className="font-bold">About Us</Small>
+            </AppLink>
+            <AppLink className="mx-2" href="/contact">
+              <Small className="font-bold">Contact</Small>
             </AppLink>
           </div>
         </div>

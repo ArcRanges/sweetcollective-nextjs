@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 12
+      nodejs: 14
 
     commands:
       # install npm
@@ -12,22 +12,21 @@ phases:
   build:
     commands:
       # run build script
-      - npm build
+      - npm run build
+
+  post_build:
+    commands:
+      - mv .next next
 
 artifacts:
   # include all files required to run application
   # notably excluded is node_modules, as this will cause overwrite error on deploy
   files:
-    - assets/**/*
-    - components/**/*
-    - containers/**/*
-    - pages/**/*
-    - public/**/*
+    - next/**/*
     - scripts/**/*
-    - settings/**/*
-    - styles/**/*
-    - jsconfig.json
     - package.json
     - appspec.yml
-    - postcss.config.js
-    - tailwind.config.js
+    - next.config.js
+cache:
+  paths:
+    - node_modules/**/*

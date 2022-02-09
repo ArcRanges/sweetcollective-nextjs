@@ -49,7 +49,7 @@ export default function Footer() {
 
         <div>
           <p className="text-xs text-gray-200 text-center my-5">
-            Copyright (C) 2021 by Arc Ranges. All Rights Reserved.
+            Copyright (C) 2022 by Arc Ranges. All Rights Reserved.
           </p>
         </div>
       </div>
