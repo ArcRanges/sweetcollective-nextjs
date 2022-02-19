@@ -1,3 +1,4 @@
+import { Badge } from "antd";
 import AppLink from "components/AppLink";
 import Icon from "components/Icon";
 import Small from "components/Small";
@@ -14,25 +15,42 @@ export default function Navbar() {
               <Small className="font-bold">SWEETCOLLECTIVECO</Small>
             </AppLink>
           </div>
-          <div className="hidden md:inline">
-            <AppLink className="mx-2 text-black hover:text-black" href="/shop">
-              <Small className="font-bold">Shop</Small>
-            </AppLink>
-            <AppLink className="mx-2 text-black hover:text-black" href="/blog">
-              <Small className="font-bold">Blog</Small>
-            </AppLink>
-            <AppLink className="mx-2 text-black hover:text-black" href="/faq">
-              <Small className="font-bold">FAQ</Small>
-            </AppLink>
-            <AppLink className="mx-2 text-black hover:text-black" href="/about">
-              <Small className="font-bold">About Us</Small>
-            </AppLink>
-            <AppLink
-              className="ml-2 text-black hover:text-black"
-              href="/contact"
-            >
-              <Small className="font-bold">Contact</Small>
-            </AppLink>
+          <div className="hidden md:flex md:flex-row md:items-center">
+            <div className="mr-3">
+              <AppLink
+                className="mx-2 text-black hover:text-black"
+                href="/shop"
+              >
+                <Small className="font-bold">Shop</Small>
+              </AppLink>
+              <AppLink
+                className="mx-2 text-black hover:text-black"
+                href="/blog"
+              >
+                <Small className="font-bold">Blog</Small>
+              </AppLink>
+              <AppLink className="mx-2 text-black hover:text-black" href="/faq">
+                <Small className="font-bold">FAQ</Small>
+              </AppLink>
+              <AppLink
+                className="mx-2 text-black hover:text-black"
+                href="/about"
+              >
+                <Small className="font-bold">About Us</Small>
+              </AppLink>
+              <AppLink
+                className="ml-2 text-black hover:text-black"
+                href="/contact"
+              >
+                <Small className="font-bold">Contact</Small>
+              </AppLink>
+            </div>
+            <div className="flex flex-row">
+              <Badge count={2} size="small">
+                <Icon name="shopping-cart-alt" />
+              </Badge>
+              <Icon name="user" className="ml-3" />
+            </div>
           </div>
         </div>
       </div>

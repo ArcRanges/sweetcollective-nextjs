@@ -58,7 +58,7 @@ export default function Product() {
           <div>
             <p className="font-bold font-sans text-2xl">{title}</p>
 
-            <p className="mb-3">${price}</p>
+            <p className="mb-3 text-3xl text-yellow-700">${price}</p>
 
             <p className="mb-3">{description}</p>
 
@@ -87,6 +87,7 @@ export default function Product() {
                     ? "hover:!opacity-100 border-b-2 border-yellow-700"
                     : ""
                 }`}
+                onClick={(e: any) => e.preventDefault()}
               >
                 <span
                   className={`cursor-pointer text-2xl ${
@@ -106,6 +107,7 @@ export default function Product() {
                     ? "hover:!opacity-100 border-b-2 border-yellow-700"
                     : ""
                 }`}
+                onClick={(e: any) => e.preventDefault()}
               >
                 <span
                   className={`cursor-pointer text-2xl ${
@@ -125,6 +127,7 @@ export default function Product() {
                     ? "hover:!opacity-100 border-b-2 border-yellow-700"
                     : ""
                 }`}
+                onClick={(e: any) => e.preventDefault()}
               >
                 <span
                   className={`cursor-pointer text-2xl ${
