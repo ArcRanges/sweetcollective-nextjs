@@ -16,7 +16,7 @@ export default function Navbar() {
             </AppLink>
           </div>
           <div className="hidden md:flex md:flex-row md:items-center">
-            <div className="mr-3">
+            <div className="mr-5">
               <AppLink
                 className="mx-2 text-black hover:text-black"
                 href="/shop"

@@ -1,17 +1,13 @@
 import Container from "components/Container";
-import PageHeader from "components/PageHeader";
 import Layout from "containers/Layout/Layout";
-import { BASE_API_URL } from "settings/constants";
 
 import products from "mock/products.json";
 import Button from "components/Button";
-import Image from "next/image";
 import Small from "components/Small";
 import Icon from "components/Icon";
 import ProductCard from "components/ProductCard";
 import { useState } from "react";
 import Tabs from "components/Tabs";
-import Tab from "components/Tabs/Tab";
 import AppLink from "components/AppLink";
 
 export default function Product() {
