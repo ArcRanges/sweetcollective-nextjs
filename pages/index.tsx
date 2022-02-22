@@ -9,6 +9,7 @@ import womenImg from "assets/women.png";
 import Image from "next/image";
 import ProductCard from "components/ProductCard";
 import Link from "next/link";
+import Newsletter from "containers/Newsletter";
 
 // export default function Home({ posts }) {
 export default function Home() {
@@ -262,6 +263,8 @@ export default function Home() {
           </div>
         </Container>
       </div>
+
+      <Newsletter />
     </Layout>
   );
 }
