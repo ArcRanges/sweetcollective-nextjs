@@ -8,8 +8,6 @@ import { Button, Input } from "antd";
 import { delay } from "utils";
 import AuthProvider from "hooks/AuthContext";
 
-import pampassImg from "assets/pampass.jpeg";
-
 function MyApp({ Component, pageProps }) {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -42,21 +40,23 @@ function MyApp({ Component, pageProps }) {
         }}
       >
         <p className="text-2xl text-white">Opening Soon</p>
-        <Input
-          type="password"
-          placeholder="Input page password"
-          className="!max-w-xl"
-          onChange={(e) => setPassword(e.target.value)}
-          disabled={loading}
-        />
-        <Button
-          type="primary"
-          className="mt-2"
-          onClick={() => handleAppCheckPassword()}
-          loading={loading}
-        >
-          Submit
-        </Button>
+        <div className="max-w-xl">
+          <Input
+            type="password"
+            placeholder="Input page password"
+            className="!max-w-xl !bg-transparent !p-5 text-center !text-white"
+            onChange={(e) => setPassword(e.target.value)}
+            disabled={loading}
+          />
+          <Button
+            type="primary"
+            className="mt-2 !p-7 w-full !flex !items-center !justify-center !text-black !border-white !bg-white"
+            onClick={() => handleAppCheckPassword()}
+            loading={loading}
+          >
+            Submit
+          </Button>
+        </div>
       </div>
     );
   }
