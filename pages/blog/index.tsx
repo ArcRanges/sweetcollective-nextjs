@@ -2,6 +2,7 @@ import Container from "components/Container";
 import PageHeader from "components/PageHeader";
 import Layout from "containers/Layout/Layout";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export default function index() {
@@ -10,7 +11,7 @@ export default function index() {
       <Container>
         <PageHeader title="BLOG" />
         <div className="grid grid-cols-3 gap-8 py-3">
-          <a href="/blog/sample-blog-post">
+          <Link href="/blog/sample-blog-post">
             <div className="p-7 bg-white shadow-md hover:shadow-lg hover:bg-cashmere-300 cursor-pointer transition-all duration-400">
               <span className="text-2xl block font-bold mb-2">
                 What Makes A Great Artist
@@ -21,7 +22,7 @@ export default function index() {
                 width="300"
               />
             </div>
-          </a>
+          </Link>
           <div className="p-7 bg-white shadow-md hover:shadow-lg hover:bg-cashmere-300 cursor-pointer transition-all duration-400">
             <span className="text-2xl block font-bold mb-2">
               A Heart For Everyone
