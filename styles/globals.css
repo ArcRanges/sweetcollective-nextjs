@@ -50,3 +50,9 @@ h1 {
 .gucci-bg-red {
   background-color: #a82b11;
 }
+
+/* Ant design overrides */
+.ant-message-custom-content {
+  display: flex;
+  align-items: center;
+}

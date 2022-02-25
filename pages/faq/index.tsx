@@ -9,10 +9,10 @@ const { Panel } = Collapse;
 export default function index() {
   return (
     <Layout>
-      <Container className="py-10">
-        <div className="grid grid-cols-2 gap-8">
+      <Container className="px-5 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <p className="font-bold">ORDERS</p>
+            <p className="font-bold">PAYMENT</p>
             <Collapse defaultActiveKey={["1"]}>
               <Panel header="This is panel header 1" key="1">
                 <p>
@@ -42,6 +42,64 @@ export default function index() {
           </div>
           <div>
             <p className="font-bold">SHIPPING</p>
+            <Collapse defaultActiveKey={["1"]}>
+              <Panel header="This is panel header 1" key="1">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Tenetur dolores tempore quaerat, fuga aperiam, ducimus
+                  voluptatem nisi quos nihil, odit commodi ratione ex veritatis?
+                  Nostrum id explicabo animi quas tempore.
+                </p>
+              </Panel>
+              <Panel header="This is panel header 2" key="2">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Tenetur dolores tempore quaerat, fuga aperiam, ducimus
+                  voluptatem nisi quos nihil, odit commodi ratione ex veritatis?
+                  Nostrum id explicabo animi quas tempore.
+                </p>
+              </Panel>
+              <Panel header="This is panel header 3" key="3">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Tenetur dolores tempore quaerat, fuga aperiam, ducimus
+                  voluptatem nisi quos nihil, odit commodi ratione ex veritatis?
+                  Nostrum id explicabo animi quas tempore.
+                </p>
+              </Panel>
+            </Collapse>
+          </div>
+          <div>
+            <p className="font-bold">REFUNDS</p>
+            <Collapse defaultActiveKey={["1"]}>
+              <Panel header="This is panel header 1" key="1">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Tenetur dolores tempore quaerat, fuga aperiam, ducimus
+                  voluptatem nisi quos nihil, odit commodi ratione ex veritatis?
+                  Nostrum id explicabo animi quas tempore.
+                </p>
+              </Panel>
+              <Panel header="This is panel header 2" key="2">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Tenetur dolores tempore quaerat, fuga aperiam, ducimus
+                  voluptatem nisi quos nihil, odit commodi ratione ex veritatis?
+                  Nostrum id explicabo animi quas tempore.
+                </p>
+              </Panel>
+              <Panel header="This is panel header 3" key="3">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Tenetur dolores tempore quaerat, fuga aperiam, ducimus
+                  voluptatem nisi quos nihil, odit commodi ratione ex veritatis?
+                  Nostrum id explicabo animi quas tempore.
+                </p>
+              </Panel>
+            </Collapse>
+          </div>
+          <div>
+            <p className="font-bold">MISC</p>
             <Collapse defaultActiveKey={["1"]}>
               <Panel header="This is panel header 1" key="1">
                 <p>

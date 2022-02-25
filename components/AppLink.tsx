@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-export default function AppLink({ href, children, className = "", ...rest }) {
+export default function AppLink({
+  href,
+  children,
+  className = "",
+  ...rest
+}: any) {
   return (
     <Link href={href} {...rest}>
       <a

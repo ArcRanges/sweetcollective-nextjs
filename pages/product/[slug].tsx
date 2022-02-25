@@ -1,17 +1,13 @@
 import Container from "components/Container";
-import PageHeader from "components/PageHeader";
 import Layout from "containers/Layout/Layout";
-import { BASE_API_URL } from "settings/constants";
 
 import products from "mock/products.json";
 import Button from "components/Button";
-import Image from "next/image";
 import Small from "components/Small";
 import Icon from "components/Icon";
 import ProductCard from "components/ProductCard";
 import { useState } from "react";
 import Tabs from "components/Tabs";
-import Tab from "components/Tabs/Tab";
 import AppLink from "components/AppLink";
 
 export default function Product() {
@@ -58,7 +54,7 @@ export default function Product() {
           <div>
             <p className="font-bold font-sans text-2xl">{title}</p>
 
-            <p className="mb-3">${price}</p>
+            <p className="mb-3 text-3xl text-yellow-700">${price}</p>
 
             <p className="mb-3">{description}</p>
 
@@ -87,6 +83,7 @@ export default function Product() {
                     ? "hover:!opacity-100 border-b-2 border-yellow-700"
                     : ""
                 }`}
+                onClick={(e: any) => e.preventDefault()}
               >
                 <span
                   className={`cursor-pointer text-2xl ${
@@ -106,6 +103,7 @@ export default function Product() {
                     ? "hover:!opacity-100 border-b-2 border-yellow-700"
                     : ""
                 }`}
+                onClick={(e: any) => e.preventDefault()}
               >
                 <span
                   className={`cursor-pointer text-2xl ${
@@ -125,6 +123,7 @@ export default function Product() {
                     ? "hover:!opacity-100 border-b-2 border-yellow-700"
                     : ""
                 }`}
+                onClick={(e: any) => e.preventDefault()}
               >
                 <span
                   className={`cursor-pointer text-2xl ${
