@@ -8,6 +8,8 @@ import { Button, Input } from "antd";
 import { delay } from "utils";
 import AuthProvider from "hooks/AuthContext";
 
+import pampassImg from "assets/pampass.jpeg";
+
 function MyApp({ Component, pageProps }) {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -33,12 +35,17 @@ function MyApp({ Component, pageProps }) {
 
   if (!authenticated) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen">
-        <p className="text-2xl">Opening Soon</p>
+      <div
+        className="flex flex-col items-center justify-center h-screen"
+        style={{
+          backgroundImage: `url('https://images.pexels.com/photos/9509654/pexels-photo-9509654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')`,
+        }}
+      >
+        <p className="text-2xl text-white">Opening Soon</p>
         <Input
           type="password"
           placeholder="Input page password"
-          className="!w-1/3"
+          className="!max-w-xl"
           onChange={(e) => setPassword(e.target.value)}
           disabled={loading}
         />
