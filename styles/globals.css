@@ -56,3 +56,6 @@ h1 {
   display: flex;
   align-items: center;
 }
+.ant-btn-loading-icon {
+  display: flex !important;
+}
