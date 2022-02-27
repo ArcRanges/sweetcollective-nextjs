@@ -2,9 +2,16 @@ import { Badge } from "antd";
 import AppLink from "components/AppLink";
 import Icon from "components/Icon";
 import Small from "components/Small";
+import { useLayoutContext } from "hooks/LayoutContext";
 import React from "react";
 
 export default function Navbar() {
+  const [layoutState, setLayoutState] = useLayoutContext();
+  const { cartVisible } = layoutState;
+
+  const toggleCart = () =>
+    setLayoutState({ ...layoutState, cartVisible: !cartVisible });
+
   return (
     <div className="shadow">
       <div className="container mx-auto">
@@ -47,7 +54,11 @@ export default function Navbar() {
             </div>
             <div className="flex flex-row">
               <Badge count={2} size="small">
-                <Icon name="shopping-cart-alt" />
+                <Icon
+                  className="cursor-pointer"
+                  name="shopping-cart-alt"
+                  onClick={toggleCart}
+                />
               </Badge>
               <Icon name="user" className="ml-3" />
             </div>

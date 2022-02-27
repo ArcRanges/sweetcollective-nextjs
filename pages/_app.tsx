@@ -7,11 +7,19 @@ import { useState } from "react";
 import { Button, Input } from "antd";
 import { delay } from "utils";
 import AuthProvider from "hooks/AuthContext";
+import LayoutProvider from "hooks/LayoutContext";
 
 function MyApp({ Component, pageProps }) {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [state, setState] = useState({
+    authenticated: false,
+    cartVisible: false,
+  });
+  const { authenticated, cartVisible } = state;
   const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
+
+  const setAuthenticated = (authenticated: boolean) =>
+    setState({ ...state, authenticated });
 
   const handleAppCheckPassword = async () => {
     setLoading(true);
@@ -82,7 +90,9 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <AuthProvider state={{ authenticated }}>
-        <Component {...pageProps} />
+        <LayoutProvider state={[state, setState]}>
+          <Component {...pageProps} />
+        </LayoutProvider>
       </AuthProvider>
     </>
   );
