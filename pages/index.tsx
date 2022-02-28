@@ -15,10 +15,7 @@ import Newsletter from "containers/Newsletter";
 export default function Home() {
   return (
     <Layout>
-      <div
-        className="px-5 md:px-10"
-        style={{ backgroundColor: themeColors.primary }}
-      >
+      <div style={{ backgroundColor: themeColors.primary }}>
         <Container>
           <div className="w-full py-20">
             <div className="grid md:grid-cols-2">

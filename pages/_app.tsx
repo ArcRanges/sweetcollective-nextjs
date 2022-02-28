@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
     cartVisible: false,
   });
   const [authState, setAuthState] = useState({
-    authenticated: true,
+    authenticated: false,
     cart: cartItems,
   });
   const { authenticated } = authState;
