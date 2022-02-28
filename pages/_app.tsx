@@ -8,18 +8,23 @@ import { Button, Input } from "antd";
 import { delay } from "utils";
 import AuthProvider from "hooks/AuthContext";
 import LayoutProvider from "hooks/LayoutContext";
+import cartItems from "mock/cart.json";
 
 function MyApp({ Component, pageProps }) {
   const [state, setState] = useState({
-    authenticated: false,
     cartVisible: false,
   });
-  const { authenticated, cartVisible } = state;
+  const [authState, setAuthState] = useState({
+    authenticated: true,
+    cart: cartItems,
+  });
+  const { authenticated } = authState;
+
   const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
 
   const setAuthenticated = (authenticated: boolean) =>
-    setState({ ...state, authenticated });
+    setAuthState({ ...authState, authenticated });
 
   const handleAppCheckPassword = async () => {
     setLoading(true);
@@ -89,7 +94,7 @@ function MyApp({ Component, pageProps }) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
         />
       </Head>
-      <AuthProvider state={{ authenticated }}>
+      <AuthProvider state={[authState, setAuthState]}>
         <LayoutProvider state={[state, setState]}>
           <Component {...pageProps} />
         </LayoutProvider>

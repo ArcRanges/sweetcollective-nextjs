@@ -10,6 +10,6 @@ export const useAuthContext = () => {
 
 export default function AuthProvider({ children, state }) {
   return (
-    <AuthContext.Provider value={[state]}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={[...state]}>{children}</AuthContext.Provider>
   );
 }
