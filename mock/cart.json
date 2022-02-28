@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Leather Jacket",
+        "price": 99.99,
+        "img_url": "https://sweetcollective-static.s3.us-west-1.amazonaws.com/jacket.png",
+        "size": "XL",
+        "color": "Yellow",
+        "quantity": 2
+    },
+    {
+        "id": 2,
+        "name": "Leather Jacket",
+        "price": 79.99,
+        "img_url": "https://sweetcollective-static.s3.us-west-1.amazonaws.com/jacket.png",
+        "size": "M",
+        "color": "Green",
+        "quantity": 1
+    },
+    {
+        "id": 3,
+        "name": "Leather Jacket",
+        "price": 69.99,
+        "img_url": "https://sweetcollective-static.s3.us-west-1.amazonaws.com/jacket.png",
+        "size": "SM",
+        "color": "Yellow",
+        "quantity": 2
+    }
+]

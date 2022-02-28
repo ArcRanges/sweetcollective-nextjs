@@ -2,9 +2,26 @@ import { Badge } from "antd";
 import AppLink from "components/AppLink";
 import Icon from "components/Icon";
 import Small from "components/Small";
+import { useAuthContext } from "hooks/AuthContext";
+import { useLayoutContext } from "hooks/LayoutContext";
 import React from "react";
 
 export default function Navbar() {
+  const [{ cart }] = useAuthContext();
+  const [layoutState, setLayoutState] = useLayoutContext();
+  const { cartVisible } = layoutState;
+
+  const toggleCart = () =>
+    setLayoutState({ ...layoutState, cartVisible: !cartVisible });
+
+  const getCartItemCount = () => {
+    let count = 0;
+    cart.map((cartItem: any) => {
+      count += cartItem.quantity;
+    });
+    return count;
+  };
+
   return (
     <div className="shadow">
       <div className="container mx-auto">
@@ -46,8 +63,14 @@ export default function Navbar() {
               </AppLink>
             </div>
             <div className="flex flex-row">
-              <Badge count={2} size="small">
-                <Icon name="shopping-cart-alt" />
+              <Badge count={getCartItemCount()} size="small">
+                <Icon
+                  className={`cursor-pointer ${
+                    cartVisible ? "text-cashmere-800" : ""
+                  }`}
+                  name="shopping-cart-alt"
+                  onClick={toggleCart}
+                />
               </Badge>
               <Icon name="user" className="ml-3" />
             </div>

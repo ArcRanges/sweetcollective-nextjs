@@ -7,11 +7,24 @@ import { useState } from "react";
 import { Button, Input } from "antd";
 import { delay } from "utils";
 import AuthProvider from "hooks/AuthContext";
+import LayoutProvider from "hooks/LayoutContext";
+import cartItems from "mock/cart.json";
 
 function MyApp({ Component, pageProps }) {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [state, setState] = useState({
+    cartVisible: false,
+  });
+  const [authState, setAuthState] = useState({
+    authenticated: true,
+    cart: cartItems,
+  });
+  const { authenticated } = authState;
+
   const [loading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
+
+  const setAuthenticated = (authenticated: boolean) =>
+    setAuthState({ ...authState, authenticated });
 
   const handleAppCheckPassword = async () => {
     setLoading(true);
@@ -33,31 +46,35 @@ function MyApp({ Component, pageProps }) {
 
   if (!authenticated) {
     return (
-      <div
-        className="flex flex-col items-center justify-center h-screen"
-        style={{
-          backgroundImage: `url('https://images.pexels.com/photos/9509654/pexels-photo-9509654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')`,
-        }}
-      >
-        <p className="text-2xl text-white">Opening Soon</p>
-        <div className="max-w-xl">
-          <Input
-            type="password"
-            placeholder="Input page password"
-            className="!max-w-xl !bg-transparent !p-5 text-center !text-white"
-            onChange={(e) => setPassword(e.target.value)}
-            disabled={loading}
-          />
-          <Button
-            type="primary"
-            className="mt-2 !p-7 w-full !flex !items-center !justify-center !text-black !border-white !bg-white"
-            onClick={() => handleAppCheckPassword()}
-            loading={loading}
-          >
-            Submit
-          </Button>
+      <>
+        <div
+          className="h-screen"
+          style={{
+            backgroundImage: `url('https://images.pexels.com/photos/9509654/pexels-photo-9509654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')`,
+            filter: "blur(5px)",
+          }}
+        ></div>
+        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <p className="text-2xl text-white text-center">Opening Soon</p>
+          <div className="max-w-xl">
+            <Input
+              type="password"
+              placeholder="Input page password"
+              className="!max-w-xl !bg-transparent !p-5 text-center !text-white"
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={loading}
+            />
+            <Button
+              type="primary"
+              className="mt-2 !p-7 w-full !flex !items-center !justify-center !text-black !border-white !bg-white"
+              onClick={() => handleAppCheckPassword()}
+              loading={loading}
+            >
+              Submit
+            </Button>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -77,8 +94,10 @@ function MyApp({ Component, pageProps }) {
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
         />
       </Head>
-      <AuthProvider state={{ authenticated }}>
-        <Component {...pageProps} />
+      <AuthProvider state={[authState, setAuthState]}>
+        <LayoutProvider state={[state, setState]}>
+          <Component {...pageProps} />
+        </LayoutProvider>
       </AuthProvider>
     </>
   );

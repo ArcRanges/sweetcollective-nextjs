@@ -1,21 +1,26 @@
-import Container from "components/Container";
-import Layout from "containers/Layout/Layout";
-
-import products from "mock/products.json";
+import AppLink from "components/AppLink";
 import Button from "components/Button";
-import Small from "components/Small";
+import Container from "components/Container";
 import Icon from "components/Icon";
 import ProductCard from "components/ProductCard";
-import { useState } from "react";
+import Small from "components/Small";
 import Tabs from "components/Tabs";
-import AppLink from "components/AppLink";
+import Layout from "containers/Layout/Layout";
+import { useAuthContext } from "hooks/AuthContext";
+import { useLayoutContext } from "hooks/LayoutContext";
+import products from "mock/products.json";
+import { useState } from "react";
+import { delay } from "utils";
 
 export default function Product() {
   const [state, setState] = useState({
+    addToCartLoading: false,
     selectedTabIndex: 0,
   });
-  const { selectedTabIndex } = state;
-
+  const { addToCartLoading, selectedTabIndex } = state;
+  const [layoutState, setLayoutState] = useLayoutContext();
+  const [authState, setAuthState] = useAuthContext();
+  const { cart } = authState;
   const relatedProducts = [...products].splice(0, 4);
   const { id, url, title, price, tags, description }: any = {
     id: 1,
@@ -30,6 +35,47 @@ export default function Product() {
   };
 
   const isActiveTab = (index: number) => selectedTabIndex === index;
+
+  const handleAddToCart = async (id: number) => {
+    setState({ ...state, addToCartLoading: true });
+    await delay(1000);
+    setState({ ...state, addToCartLoading: false });
+    setLayoutState({ ...layoutState, cartVisible: true });
+
+    // check if item id already exists
+    const item = cart.find((cartItem: any) => cartItem.id === id);
+
+    if (item) {
+      const newCart = cart.map((cartItem: any) =>
+        cartItem.id === id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      );
+      setAuthState({
+        ...authState,
+        cart: newCart,
+      });
+      return;
+    }
+
+    // not found
+    setAuthState({
+      ...authState,
+      cart: [
+        ...cart,
+        {
+          id,
+          name: "Flora Dangles...",
+          price: 37.99,
+          img_url:
+            "https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg",
+          size: "M",
+          color: "Green",
+          quantity: 1,
+        },
+      ],
+    });
+  };
 
   return (
     <Layout>
@@ -62,7 +108,13 @@ export default function Product() {
               <Button className="w-14 mr-3">
                 <Icon name="heart" />
               </Button>
-              <Button className="">ADD TO CART</Button>
+              <Button
+                className=""
+                onClick={() => handleAddToCart(99)}
+                loading={addToCartLoading}
+              >
+                ADD TO CART
+              </Button>
               <Button className="w-14 ml-3">
                 <Icon name="share" />
               </Button>
