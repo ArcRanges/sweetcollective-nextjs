@@ -17,7 +17,7 @@ export default function Newsletter() {
               />
             </Form.Item>
             <Form.Item>
-              <Button>SUBSCRIBE</Button>
+              <Button className="!border-0">SUBSCRIBE</Button>
             </Form.Item>
           </div>
         </Form>
