@@ -1,80 +1,66 @@
+import { Select } from "antd";
 import Container from "components/Container";
 import PageHeader from "components/PageHeader";
 import ProductCard from "components/ProductCard";
 import Layout from "containers/Layout/Layout";
+import { useLayoutContext } from "hooks/LayoutContext";
+import products from "mock/products.json";
 import React from "react";
 
-import products from "mock/products.json";
+const { Option } = Select;
 
 export default function Shop() {
+  const [layoutState, setLayoutState] = useLayoutContext();
+  const { filterVisible } = layoutState;
+
   return (
     <Layout>
       <Container>
-        <PageHeader title={"Shop All"} />
-        {/* 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 py-10">
-         
-        </div> */}
-
-        <div className="grid md:grid-cols-4">
-          <div className="col-span-0 md:col-span-1">
-            <div className="hidden md:block ">
-              <span className="font-bold mb-3">Filter Products</span>
-              <div>
-                <label htmlFor="#tag_jewelry">
-                  <input type="checkbox" /> Jewelry
-                </label>
-              </div>
-              <div>
-                <label htmlFor="#tag_jewelry">
-                  <input type="checkbox" /> Necklace
-                </label>
-              </div>
-              <div>
-                <label htmlFor="#tag_jewelry">
-                  <input type="checkbox" /> Studs
-                </label>
-              </div>
-              <div>
-                <label htmlFor="#tag_jewelry">
-                  <input type="checkbox" /> Bracelet
-                </label>
-              </div>
-
-              <span className="font-bold mb-3">Category</span>
-              <div>
-                <label htmlFor="#tag_jewelry">
-                  <input type="checkbox" /> Jewelry
-                </label>
-              </div>
-              <div>
-                <label htmlFor="#tag_jewelry">
-                  <input type="checkbox" /> Necklace
-                </label>
-              </div>
-              <div>
-                <label htmlFor="#tag_jewelry">
-                  <input type="checkbox" /> Studs
-                </label>
-              </div>
-              <div>
-                <label htmlFor="#tag_jewelry">
-                  <input type="checkbox" /> Bracelet
-                </label>
-              </div>
+        <div className="flex flex-row items-center justify-between">
+          <PageHeader title="Shop All" />
+          <div className="flex flex-row items-center justify-between">
+            <div className="flex items-center mr-5">
+              <span
+                className="font-bold text-blue-500 cursor-pointer"
+                onClick={() =>
+                  setLayoutState({
+                    ...layoutState,
+                    filterVisible: !filterVisible,
+                  })
+                }
+              >
+                Filters
+              </span>
+            </div>
+            <div className="flex items-center">
+              <span className="font-bold">Sort By</span>
+              <Select
+                dropdownClassName="!font-bold"
+                bordered={false}
+                style={{ width: 120 }}
+                placeholder="Select Sort"
+              >
+                <Option name="sort" value="price">
+                  Price
+                </Option>
+                <Option name="sort" value="rating">
+                  Rating
+                </Option>
+                <Option name="sort" value="popularity">
+                  Popularity
+                </Option>
+              </Select>
             </div>
           </div>
+        </div>
 
-          <div className="col-span-4 md:col-span-3">
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 pb-10">
-              {products.map(({ url, ...rest }, index) => (
-                <ProductCard imgSrc={url} {...rest} key={index} />
-              ))}
-              {products.map(({ url, ...rest }, index) => (
-                <ProductCard imgSrc={url} {...rest} key={index} />
-              ))}
-            </div>
-          </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 pb-10">
+          {products.map(({ url, ...rest }, index) => (
+            <ProductCard imgSrc={url} {...rest} key={index} />
+          ))}
+          {products.map(({ url, ...rest }, index) => (
+            <ProductCard imgSrc={url} {...rest} key={index} />
+          ))}
         </div>
       </Container>
     </Layout>

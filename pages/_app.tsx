@@ -13,6 +13,8 @@ import cartItems from "mock/cart.json";
 function MyApp({ Component, pageProps }) {
   const [state, setState] = useState({
     cartVisible: false,
+    filterVisible: false,
+    sortFilter: -1,
   });
   const [authState, setAuthState] = useState({
     authenticated: false,

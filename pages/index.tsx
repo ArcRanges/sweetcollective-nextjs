@@ -1,15 +1,13 @@
-import Container from "components/Container";
-import Layout from "containers/Layout/Layout";
-import Small from "components/Small";
-import { BASE_API_URL } from "settings/constants";
-import { themeColors } from "settings/theme";
-
 import sampleProduct from "assets/sample-product.png";
 import womenImg from "assets/women.png";
-import Image from "next/image";
+import Container from "components/Container";
 import ProductCard from "components/ProductCard";
-import Link from "next/link";
+import Small from "components/Small";
+import Layout from "containers/Layout/Layout";
 import Newsletter from "containers/Newsletter";
+import Image from "next/image";
+import Link from "next/link";
+import { themeColors } from "settings/theme";
 
 // export default function Home({ posts }) {
 export default function Home() {
