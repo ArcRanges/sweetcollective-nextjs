@@ -4,14 +4,22 @@ import PageHeader from "components/PageHeader";
 import ProductCard from "components/ProductCard";
 import Layout from "containers/Layout/Layout";
 import { useLayoutContext } from "hooks/LayoutContext";
-import products from "mock/products.json";
+// import products from "mock/products.json";
 import React from "react";
+import { createClient } from "contentful";
 
 const { Option } = Select;
 
-export default function Shop() {
+interface ShopPageProps {
+  products: any;
+}
+
+export default function Shop(props: ShopPageProps) {
+  const { products } = props;
   const [layoutState, setLayoutState] = useLayoutContext();
   const { filterVisible } = layoutState;
+
+  console.log(props);
 
   return (
     <Layout>
@@ -55,14 +63,25 @@ export default function Shop() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 pb-10">
-          {products.map(({ url, ...rest }, index) => (
-            <ProductCard imgSrc={url} {...rest} key={index} />
-          ))}
-          {products.map(({ url, ...rest }, index) => (
-            <ProductCard imgSrc={url} {...rest} key={index} />
+          {products.map(({ fields, ...rest }, index: number) => (
+            <ProductCard {...fields} key={index} />
           ))}
         </div>
       </Container>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  });
+
+  const entries = await client.getEntries();
+
+  console.log(entries);
+  return {
+    props: { products: entries.items },
+  };
 }

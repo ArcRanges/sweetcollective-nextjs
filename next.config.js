@@ -26,6 +26,7 @@ module.exports = withAntdLess({
       "i.etsystatic.com",
       "www.shingirl.com",
       "sweetcollective-static.s3.us-west-1.amazonaws.com",
+      "images.ctfassets.net",
     ],
   },
 
