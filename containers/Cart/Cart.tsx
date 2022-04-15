@@ -60,6 +60,7 @@ export default function Cart() {
       {cart.map((cartItem: any, i: number) => (
         <CartItem
           {...cartItem}
+          key={i}
           handleRemove={handleRemoveItem}
           handleChangeQuantity={handleChangeQuantity}
           className={i === cart.length - 1 ? "mb-10" : ""}
