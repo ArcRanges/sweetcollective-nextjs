@@ -13,8 +13,7 @@ interface ShopPageProps {
   products: any;
 }
 
-export default function Shop(props: ShopPageProps) {
-  const { products } = props;
+export default function Shop({ products }: ShopPageProps) {
   const [layoutState, setLayoutState] = useLayoutContext();
   const { filterVisible } = layoutState;
 
@@ -75,9 +74,11 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
   });
 
-  const entries = await client.getEntries();
+  const entries = (await client.getEntries({
+    content_type: "products",
+  })) as any;
 
   return {
-    props: { products: entries.items },
+    props: { products: entries?.items },
   };
 }
