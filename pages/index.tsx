@@ -8,9 +8,10 @@ import Newsletter from "containers/Newsletter";
 import Image from "next/image";
 import Link from "next/link";
 import { themeColors } from "settings/theme";
+import { createClient } from "contentful";
 
 // export default function Home({ posts }) {
-export default function Home() {
+export default function Home({ hottestSection, onSaleSection }) {
   return (
     <Layout>
       <div style={{ backgroundColor: themeColors.primary }}>
@@ -124,64 +125,41 @@ export default function Home() {
         </Container>
       </div>
 
+      {/* HOTTEST PRODUCTS */}
       <div className="px-5 md:px-10">
         <Container className="my-10">
-          <h1 className="text-5xl">Hottest Products</h1>
+          <h1 className="text-5xl">
+            {hottestSection?.title || "Untitled Section"}
+          </h1>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 py-10">
-            <ProductCard
-              tag="Earring"
-              imgSrc="https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg"
-              title="FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho"
-              price="37.99"
-            />
-            <ProductCard
-              tag="Studs"
-              imgSrc="https://i.etsystatic.com/24311168/r/il/3625b5/3230346094/il_680x540.3230346094_mta3.jpg"
-              title="FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho"
-              price="37.99"
-            />
-            <ProductCard
-              tag="Earring"
-              imgSrc="https://i.etsystatic.com/24311168/r/il/401bdb/3278081893/il_340x270.3278081893_ijod.jpg"
-              title="WILLOW Dangles |Polymer Clay Earrings | Statement Earring Simple, Stainless Steel, Dangle Clay Hypoallergenic Jewelry | Ceramic Jewelry Gift"
-              price="32.99"
-            />
-            <ProductCard
-              tag="Earring"
-              imgSrc="https://i.etsystatic.com/24311168/r/il/489995/3058739123/il_340x270.3058739123_qwek.jpg"
-              title="Shell Trinket Dish | Sea Shell Candle Dish | Handmade Jesmonite Sea Shell Trinket Tray | Jewellery Dish | Gift for Her | Ceramic Decoration"
-              price="29.99"
-            />
-            <ProductCard
-              tag="Earring"
-              imgSrc="https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg"
-              title="FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho"
-              price="37.99"
-            />
-            <ProductCard
-              tag="Studs"
-              imgSrc="https://i.etsystatic.com/24311168/r/il/3625b5/3230346094/il_680x540.3230346094_mta3.jpg"
-              title="FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho"
-              price="37.99"
-            />
-            <ProductCard
-              tag="Earring"
-              imgSrc="https://i.etsystatic.com/24311168/r/il/401bdb/3278081893/il_340x270.3278081893_ijod.jpg"
-              title="WILLOW Dangles |Polymer Clay Earrings | Statement Earring Simple, Stainless Steel, Dangle Clay Hypoallergenic Jewelry | Ceramic Jewelry Gift"
-              price="32.99"
-            />
-            <ProductCard
-              tag="Earring"
-              imgSrc="https://i.etsystatic.com/24311168/r/il/489995/3058739123/il_340x270.3058739123_qwek.jpg"
-              title="Shell Trinket Dish | Sea Shell Candle Dish | Handmade Jesmonite Sea Shell Trinket Tray | Jewellery Dish | Gift for Her | Ceramic Decoration"
-              price="29.99"
-            />
+            {hottestSection?.products?.map(({ fields }, index: number) => (
+              <ProductCard {...fields} key={index} />
+            ))}
           </div>
-          <p className="block text-center">
+          {/* <p className="block text-center">
             <Small bold className="cursor-pointer">
               View More
             </Small>
-          </p>
+          </p> */}
+        </Container>
+      </div>
+
+      {/* ON SALE PRODUCTS */}
+      <div className="px-5 md:px-10">
+        <Container className="my-10">
+          <h1 className="text-5xl">
+            {onSaleSection?.title || "Untitled Section"}
+          </h1>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 py-10">
+            {onSaleSection?.products?.map(({ fields }, index: number) => (
+              <ProductCard {...fields} key={index} />
+            ))}
+          </div>
+          {/* <p className="block text-center">
+            <Small bold className="cursor-pointer">
+              View More
+            </Small>
+          </p> */}
         </Container>
       </div>
 
@@ -264,12 +242,20 @@ export default function Home() {
   );
 }
 
-// export async function getStaticProps() {
-//   const { data: posts } = await (
-//     await fetch(`${BASE_API_URL}/api/posts?populate=author`)
-//   ).json();
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  });
 
-//   return {
-//     props: { posts },
-//   };
-// }
+  const { fields: page } = (await client.getEntry("5DZxYkJ3V6xzX6rmsaZp2K", {
+    include: 2,
+  })) as any;
+
+  const [{ fields: hottestSection }, { fields: onSaleSection }] =
+    page?.sections;
+
+  return {
+    props: { hottestSection, onSaleSection },
+  };
+}

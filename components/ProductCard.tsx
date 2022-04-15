@@ -26,7 +26,9 @@ export default function ProductCard({
         <Link href={`/product/${slug}`}>
           <Image
             src={fields ? `https:${fields?.file?.url}` : noImage}
-            className=" hover:scale-125 transition-all ease-in-out duration-300"
+            className={`transition-all ease-in-out duration-300 ${
+              showAddToCart ? "scale-125" : ""
+            }`}
             layout="responsive"
             width="100%"
             height="100%"

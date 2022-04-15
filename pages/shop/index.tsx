@@ -4,7 +4,6 @@ import PageHeader from "components/PageHeader";
 import ProductCard from "components/ProductCard";
 import Layout from "containers/Layout/Layout";
 import { useLayoutContext } from "hooks/LayoutContext";
-// import products from "mock/products.json";
 import React from "react";
 import { createClient } from "contentful";
 
@@ -18,8 +17,6 @@ export default function Shop(props: ShopPageProps) {
   const { products } = props;
   const [layoutState, setLayoutState] = useLayoutContext();
   const { filterVisible } = layoutState;
-
-  console.log(props);
 
   return (
     <Layout>
@@ -63,7 +60,7 @@ export default function Shop(props: ShopPageProps) {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 pb-10">
-          {products.map(({ fields, ...rest }, index: number) => (
+          {products.map(({ fields }, index: number) => (
             <ProductCard {...fields} key={index} />
           ))}
         </div>
@@ -80,7 +77,6 @@ export async function getStaticProps() {
 
   const entries = await client.getEntries();
 
-  console.log(entries);
   return {
     props: { products: entries.items },
   };
