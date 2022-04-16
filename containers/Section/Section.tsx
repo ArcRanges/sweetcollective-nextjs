@@ -10,7 +10,8 @@ export default function Section({
   title,
   heading,
   content,
-  buttonProps,
+  buttonText,
+  buttonLink,
 }: SectionProps) {
   return (
     <div style={{ backgroundColor }}>
@@ -26,11 +27,11 @@ export default function Section({
               {heading && <h1 className="text-5xl mb-4 w-2/3">{heading}</h1>}
               {content && <p className="mb-4">{content}</p>}
 
-              {buttonProps?.link && buttonProps?.title && (
-                <Link href={buttonProps.link}>
+              {buttonLink && buttonText && (
+                <Link href={buttonLink}>
                   <button className="bg-black text-white py-2 px-4 hover:opacity-50 transition duration-200 ease-linear">
                     <div className="flex flex-row items-center">
-                      <Small className="mb-0">{buttonProps.title}</Small>
+                      <Small className="mb-0">{buttonText}</Small>
                       &nbsp;
                       <i className="uil uil-arrow-right text-lg"></i>
                     </div>

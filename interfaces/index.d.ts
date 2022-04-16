@@ -1,15 +1,11 @@
-interface BtnLinkProps {
-  title: string;
-  link: string;
-}
-
 interface SectionProps {
   backgroundColor?: string;
   image: any;
   title: string;
   heading: string;
   content: string;
-  buttonProps: BtnLinkProps;
+  buttonText: string;
+  buttonLink: string;
 }
 
 type Feature = {
