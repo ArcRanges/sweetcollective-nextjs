@@ -1,25 +1,11 @@
-import FeaturesSection from "containers/FeaturesSection";
+import DynamicSection from "components/DynamicSection";
 import Layout from "containers/Layout/Layout";
-import ProductCollection from "containers/ProductCollection";
-import RecentPosts from "containers/RecentPosts";
-import Section from "containers/Section";
 import { createClient } from "contentful";
 
-const sectionTypes = {
-  section: Section,
-  productCollection: ProductCollection,
-  featuresSection: FeaturesSection,
-  posts: RecentPosts,
-};
-
-export default function Home(props: any) {
+export default function Home({ sections }: any) {
   return (
     <Layout>
-      {props.sections.map((section: any, key: number) => {
-        const Component = sectionTypes[section.sys.contentType.sys.id];
-        if (Component) return <Component {...section.fields} key={key} />;
-        return null;
-      })}
+      <DynamicSection sections={sections} />
     </Layout>
   );
 }

@@ -21,14 +21,14 @@ export default function Product() {
   const [layoutState, setLayoutState] = useLayoutContext();
   const [authState, setAuthState] = useAuthContext();
   const { cart } = authState;
-  const relatedProducts = [...products].splice(0, 4);
+  const relatedProducts: any = [...products].splice(0, 4);
   const { id, url, title, price, tags, description }: any = {
     id: 1,
     url: "https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg",
     title:
       "FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho",
     price: 37.99,
-    tag: ["Earring"],
+    tags: ["Earring"],
     slug: "flora-dangles-polymer-clay",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.",
@@ -264,9 +264,9 @@ export default function Product() {
         <div className="py-10">
           <p className="font-bold text-xl mb-3 text-center">Related Products</p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {relatedProducts.map(({ url, ...rest }, key) => (
-              <ProductCard imgSrc={url} {...rest} key={key} />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {relatedProducts.map(({ fields }, key) => (
+              <ProductCard {...fields} key={key} />
             ))}
           </div>
         </div>
