@@ -9,8 +9,8 @@ export default function RecentPosts({ posts }: any) {
       <Container>
         <h2 className="text-5xl font-serif text-center my-3">Recent Posts</h2>
         <div className="grid grid-cols-2 md:grid-cols-3  gap-8 py-4">
-          {posts?.map(({ fields }) => (
-            <Link href={`/blog/${fields?.slug}`}>
+          {posts?.map(({ fields }, key: number) => (
+            <Link href={`/posts/${fields?.slug}`} key={key}>
               <div className="p-7 bg-white shadow-md hover:shadow-lg hover:bg-cashmere-300 cursor-pointer transition-all duration-500">
                 <span className="text-2xl block font-bold mb-2">
                   {fields?.title}

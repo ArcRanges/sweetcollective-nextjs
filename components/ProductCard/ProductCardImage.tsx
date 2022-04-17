@@ -6,7 +6,7 @@ import { useProductCardContext } from "./ProductCard";
 export default function ProductCardImage() {
   const { state } = useProductCardContext();
   const { showAddToCart, thumbnail } = state;
-  const { fields } = thumbnail;
+  const { fields } = thumbnail ?? null;
 
   const className = showAddToCart ? "scale-125" : "";
 
