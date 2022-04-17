@@ -2,7 +2,7 @@ import Container from "components/Container";
 import Small from "components/Small";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 export default function Section({
@@ -14,6 +14,11 @@ export default function Section({
   buttonText,
   buttonLink,
 }: SectionProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const onMouseEnter = () => setIsHovered(true);
+  const onMouseLeave = () => setIsHovered(false);
+
   return (
     <div style={{ backgroundColor }}>
       <Container>
@@ -30,13 +35,19 @@ export default function Section({
 
               {buttonLink && buttonText && (
                 <Link href={buttonLink}>
-                  <button className="bg-black text-white py-2 px-4 hover:opacity-50 transition duration-200 ease-linear">
-                    <div className="flex flex-row items-center">
-                      <Small className="mb-0">{buttonText}</Small>
-                      &nbsp;
-                      <i className="uil uil-arrow-right text-lg"></i>
-                    </div>
-                  </button>
+                  <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+                    <button className="bg-black text-white py-2 px-4 hover:opacity-50 transition duration-100 ">
+                      <div className="flex flex-row items-center">
+                        <Small className="mb-0">{buttonText}</Small>
+                        &nbsp;
+                        <i
+                          className={`uil uil-arrow-right text-lg transition-all duration-300 ${
+                            isHovered ? "translate-x-2" : ""
+                          }`}
+                        ></i>
+                      </div>
+                    </button>
+                  </div>
                 </Link>
               )}
             </div>
