@@ -6,6 +6,7 @@ import Layout from "containers/Layout/Layout";
 import { useLayoutContext } from "hooks/LayoutContext";
 import React from "react";
 import { createClient } from "contentful";
+import { client } from "pages/api/client";
 
 const { Option } = Select;
 
@@ -69,11 +70,6 @@ export default function Shop({ products }: ShopPageProps) {
 }
 
 export async function getStaticProps() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  });
-
   const entries = (await client.getEntries({
     content_type: "products",
   })) as any;

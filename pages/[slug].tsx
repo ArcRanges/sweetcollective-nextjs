@@ -2,7 +2,6 @@ import Container from "components/Container";
 import DynamicSection from "components/DynamicSection";
 import PageHeader from "components/PageHeader";
 import Layout from "containers/Layout";
-import { createClient } from "contentful";
 import React from "react";
 import { client } from "./api/client";
 
@@ -19,11 +18,6 @@ export default function Page(props: PageProps) {
 }
 
 export async function getStaticPaths() {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-  });
-
   // query for content with type page
   const pageEntries = await client.getEntries({
     content_type: "page",
