@@ -35,8 +35,12 @@ export default function Section({
 
               {buttonLink && buttonText && (
                 <Link href={buttonLink}>
-                  <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-                    <button className="bg-black text-white py-2 px-4 hover:opacity-50 transition duration-100 ">
+                  <div>
+                    <button
+                      onMouseEnter={onMouseEnter}
+                      onMouseLeave={onMouseLeave}
+                      className="bg-black text-white py-2 px-4 hover:opacity-50 transition duration-100 "
+                    >
                       <div className="flex flex-row items-center">
                         <Small className="mb-0">{buttonText}</Small>
                         &nbsp;
