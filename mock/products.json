@@ -1,62 +1,258 @@
 [
     {
-        "id": 1,
-        "url": "https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg",
-        "title": "FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho",
-        "price": 37.99,
-        "tag": ["Earring"],
-        "slug": "flora-dangles-polymer-clay",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et."
+        "fields": {
+            "title": "HOOPS | Polymer Clay Earrings | Statement Earring Modern Boho | Clay Hoops | Polymer Clay Hoops | Ceramic Earring Hoop | Clay Huggies | Gift",
+            "slug": "hoops-or-polymer-clay-earrings-or-statement-earring-modern-boho-or-clay",
+            "price": 45,
+            "tags": [
+                "hot"
+            ],
+            "thumbnail": {
+                "metadata": {
+                    "tags": []
+                },
+                "sys": {
+                    "space": {
+                        "sys": {
+                            "type": "Link",
+                            "linkType": "Space",
+                            "id": "a16rt0ezlhvr"
+                        }
+                    },
+                    "id": "4YACTJjBaMKkoTtjKrZgjb",
+                    "type": "Asset",
+                    "createdAt": "2022-04-14T05:45:03.594Z",
+                    "updatedAt": "2022-04-14T05:45:07.672Z",
+                    "environment": {
+                        "sys": {
+                            "id": "master",
+                            "type": "Link",
+                            "linkType": "Environment"
+                        }
+                    },
+                    "revision": 2,
+                    "locale": "en-US"
+                },
+                "fields": {
+                    "title": "HOOPS",
+                    "file": {
+                        "url": "//images.ctfassets.net/a16rt0ezlhvr/4YACTJjBaMKkoTtjKrZgjb/e019428d7f0fc3a9286aee8c57393f50/il_1588xN.3230337006_re52.jpg",
+                        "details": {
+                            "size": 116247,
+                            "image": {
+                                "width": 1035,
+                                "height": 1035
+                            }
+                        },
+                        "fileName": "il_1588xN.3230337006_re52.jpg",
+                        "contentType": "image/jpeg"
+                    }
+                }
+            },
+            "shortDescription": "Sed mattis est sit amet viverra porta. Curabitur accumsan venenatis velit id ullamcorper. Aliquam vitae convallis mauris. Aenean convallis sapien a mollis aliquam. Mauris lacinia nibh sit amet lectus elementum hendrerit. Integer vestibulum tortor sit amet lacus eleifend, at venenatis felis molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales lacus velit, id posuere quam placerat a. Praesent in ante eget dolor vehicula sagittis. Quisque purus massa, aliquam ut dolor vel, pretium facilisis ligula. Mauris consequat, nisl luctus tristique sodales, nisl orci pulvinar justo, eget accumsan purus velit ac nibh. Ut commodo nisi at quam vulputate, sit amet consequat nulla imperdiet. Duis condimentum purus mauris, nec finibus odio fringilla porta. Donec pretium pulvinar pretium. Duis pretium dui vitae augue tristique blandit. Mauris in mi turpis."
+        }
     },
     {
-        "id": 2,
-        "url": "https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg",
-        "title": "FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho",
-        "price": 37.99,
-        "tag": ["Studs"],
-        "slug": "flora-dangles-polymer-clay"
+       
+        "fields": {
+            "title": "FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho Studs",
+            "slug": "flora-dangles-or-polymer-clay-earrings-or-pressed-flower-earrings-or-pressed",
+            "thumbnail": {
+                "metadata": {
+                    "tags": []
+                },
+                "sys": {
+                    "space": {
+                        "sys": {
+                            "type": "Link",
+                            "linkType": "Space",
+                            "id": "a16rt0ezlhvr"
+                        }
+                    },
+                    "id": "2enB8xTqPrU524Qr6I2TuM",
+                    "type": "Asset",
+                    "createdAt": "2022-04-14T05:45:50.126Z",
+                    "updatedAt": "2022-04-14T05:45:50.126Z",
+                    "environment": {
+                        "sys": {
+                            "id": "master",
+                            "type": "Link",
+                            "linkType": "Environment"
+                        }
+                    },
+                    "revision": 1,
+                    "locale": "en-US"
+                },
+                "fields": {
+                    "title": "CAMILA Dangles",
+                    "file": {
+                        "url": "//images.ctfassets.net/a16rt0ezlhvr/2enB8xTqPrU524Qr6I2TuM/49c241c973ff883dd3aa05b0006e4aa2/il_1588xN.3230352192_j1vv.jpg",
+                        "details": {
+                            "size": 90745,
+                            "image": {
+                                "width": 892,
+                                "height": 892
+                            }
+                        },
+                        "fileName": "il_1588xN.3230352192_j1vv.jpg",
+                        "contentType": "image/jpeg"
+                    }
+                }
+            },
+            "shortDescription": "Sed mattis est sit amet viverra porta. Curabitur accumsan venenatis velit id ullamcorper. Aliquam vitae convallis mauris. Aenean convallis sapien a mollis aliquam. Mauris lacinia nibh sit amet lectus elementum hendrerit. Integer vestibulum tortor sit amet lacus eleifend, at venenatis felis molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales lacus velit, id posuere quam placerat a. Praesent in ante eget dolor vehicula sagittis. Quisque purus massa, aliquam ut dolor vel, pretium facilisis ligula. Mauris consequat, nisl luctus tristique sodales, nisl orci pulvinar justo, eget accumsan purus velit ac nibh. Ut commodo nisi at quam vulputate, sit amet consequat nulla imperdiet. Duis condimentum purus mauris, nec finibus odio fringilla porta. Donec pretium pulvinar pretium. Duis pretium dui vitae augue tristique blandit. Mauris in mi turpis.",
+            "price": 43
+        }
     },
     {
-        "id": 3,
-        "url": "https://i.etsystatic.com/24311168/r/il/489995/3058739123/il_340x270.3058739123_qwek.jpg",
-        "title": "Shell Trinket Dish | Sea Shell Candle Dish | Handmade Jesmonite Sea Shell Trinket Tray | Jewellery Dish | Gift for Her | Ceramic Decoration",
-        "price": 29.99,
-        "tag": ["Earring"],
-        "slug": "flora-dangles-polymer-clay"
+        
+        "fields": {
+            "title": "HELENA Hoops | Polymer Clay Earrings | Ceramic Dagles Hoops | Clay Dangles Hoops | Boho Minimalist Statement Jewelry | Gift For Her | Charms",
+            "slug": "helena-hoops-or-polymer-clay-earrings-or-ceramic-dagles-hoops-or-clay",
+            "thumbnail": {
+                "metadata": {
+                    "tags": []
+                },
+                "sys": {
+                    "space": {
+                        "sys": {
+                            "type": "Link",
+                            "linkType": "Space",
+                            "id": "a16rt0ezlhvr"
+                        }
+                    },
+                    "id": "54hSyxBGjZE5oqwXrUzxiM",
+                    "type": "Asset",
+                    "createdAt": "2022-04-14T05:32:59.210Z",
+                    "updatedAt": "2022-04-14T05:32:59.210Z",
+                    "environment": {
+                        "sys": {
+                            "id": "master",
+                            "type": "Link",
+                            "linkType": "Environment"
+                        }
+                    },
+                    "revision": 1,
+                    "locale": "en-US"
+                },
+                "fields": {
+                    "title": "HELENA Hoops",
+                    "file": {
+                        "url": "//images.ctfassets.net/a16rt0ezlhvr/54hSyxBGjZE5oqwXrUzxiM/8abe34f42a0b2d8b26357b951503baaa/il_1588xN.3230346538_xs98.jpg",
+                        "details": {
+                            "size": 231718,
+                            "image": {
+                                "width": 1588,
+                                "height": 1588
+                            }
+                        },
+                        "fileName": "il_1588xN.3230346538_xs98.jpg",
+                        "contentType": "image/jpeg"
+                    }
+                }
+            },
+            "shortDescription": "Sed mattis est sit amet viverra porta. Curabitur accumsan venenatis velit id ullamcorper. Aliquam vitae convallis mauris. Aenean convallis sapien a mollis aliquam. Mauris lacinia nibh sit amet lectus elementum hendrerit. Integer vestibulum tortor sit amet lacus eleifend, at venenatis felis molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales lacus velit, id posuere quam placerat a. Praesent in ante eget dolor vehicula sagittis. Quisque purus massa, aliquam ut dolor vel, pretium facilisis ligula. Mauris consequat, nisl luctus tristique sodales, nisl orci pulvinar justo, eget accumsan purus velit ac nibh. Ut commodo nisi at quam vulputate, sit amet consequat nulla imperdiet. Duis condimentum purus mauris, nec finibus odio fringilla porta. Donec pretium pulvinar pretium. Duis pretium dui vitae augue tristique blandit. Mauris in mi turpis.",
+            "price": 45
+        }
     },
     {
-        "id": 4,
-        "url": "https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg",
-        "title": "FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho",
-        "price": 37.99,
-        "tag": ["Earring"]
+       
+        "fields": {
+            "title": "HOOPS | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho",
+            "slug": "hoops-or-polymer-clay-earrings-or-pressed-flower-earrings-or-pressed",
+            "thumbnail": {
+                "metadata": {
+                    "tags": []
+                },
+                "sys": {
+                    "space": {
+                        "sys": {
+                            "type": "Link",
+                            "linkType": "Space",
+                            "id": "a16rt0ezlhvr"
+                        }
+                    },
+                    "id": "7fDbz9GHkVQj7YNByOl7Z1",
+                    "type": "Asset",
+                    "createdAt": "2022-04-13T04:52:21.382Z",
+                    "updatedAt": "2022-04-14T05:34:04.864Z",
+                    "environment": {
+                        "sys": {
+                            "id": "master",
+                            "type": "Link",
+                            "linkType": "Environment"
+                        }
+                    },
+                    "revision": 2,
+                    "locale": "en-US"
+                },
+                "fields": {
+                    "title": "FLORA Dangles",
+                    "file": {
+                        "url": "//images.ctfassets.net/a16rt0ezlhvr/7fDbz9GHkVQj7YNByOl7Z1/63ba23e6b36f06bf514d98945c4a2202/il_340x270.3011045358_41dz.jpg",
+                        "details": {
+                            "size": 9667,
+                            "image": {
+                                "width": 270,
+                                "height": 270
+                            }
+                        },
+                        "fileName": "il_340x270.3011045358_41dz.jpg",
+                        "contentType": "image/jpeg"
+                    }
+                }
+            },
+            "shortDescription": "Sed mattis est sit amet viverra porta. Curabitur accumsan venenatis velit id ullamcorper. Aliquam vitae convallis mauris. Aenean convallis sapien a mollis aliquam. Mauris lacinia nibh sit amet lectus elementum hendrerit. Integer vestibulum tortor sit amet lacus eleifend, at venenatis felis molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales lacus velit, id posuere quam placerat a. Praesent in ante eget dolor vehicula sagittis. Quisque purus massa, aliquam ut dolor vel, pretium facilisis ligula. Mauris consequat, nisl luctus tristique sodales, nisl orci pulvinar justo, eget accumsan purus velit ac nibh. Ut commodo nisi at quam vulputate, sit amet consequat nulla imperdiet. Duis condimentum purus mauris, nec finibus odio fringilla porta. Donec pretium pulvinar pretium. Duis pretium dui vitae augue tristique blandit. Mauris in mi turpis.",
+            "price": 45
+        }
     },
     {
-        "id": 5,
-        "url": "https://i.etsystatic.com/24311168/r/il/401bdb/3278081893/il_340x270.3278081893_ijod.jpg",
-        "title": "WILLOW Dangles |Polymer Clay Earrings | Statement Earring Simple, Stainless Steel, Dangle Clay Hypoallergenic Jewelry | Ceramic Jewelry Gift",
-        "price": 32.99,
-        "tag": ["Earring"]
-    },
-    {
-        "id": 6,
-        "url": "https://i.etsystatic.com/24311168/r/il/401bdb/3278081893/il_340x270.3278081893_ijod.jpg",
-        "title": "WILLOW Dangles |Polymer Clay Earrings | Statement Earring Simple, Stainless Steel, Dangle Clay Hypoallergenic Jewelry | Ceramic Jewelry Gift",
-        "price": 32.99,
-        "tag": ["Earring"]
-    },
-    {
-        "id": 7,
-        "url": "https://i.etsystatic.com/24311168/r/il/401bdb/3278081893/il_340x270.3278081893_ijod.jpg",
-        "title": "WILLOW Dangles |Polymer Clay Earrings | Statement Earring Simple, Stainless Steel, Dangle Clay Hypoallergenic Jewelry | Ceramic Jewelry Gift",
-        "price": 32.99,
-        "tag": ["Earring"]
-    },
-    {
-        "id": 8,
-        "url": "https://i.etsystatic.com/24311168/r/il/489995/3058739123/il_340x270.3058739123_qwek.jpg",
-        "title": "WILLOW Dangles |Polymer Clay Earrings | Statement Earring Simple, Stainless Steel, Dangle Clay Hypoallergenic Jewelry | Ceramic Jewelry Gift",
-        "price": 32.99,
-        "tag": ["Earring"]
+        "fields": {
+            "title": "CAMILA Dangles | Polymer Clay Earrings | Statement Earring Simple, Minimal, Modern, Boho, Stainless Steel Dangle Clay Hypoallergenic Jewelry",
+            "slug": "camila-dangles-or-polymer-clay-earrings-or-statement-earring-simple-minimal",
+            "price": 39,
+            "thumbnail": {
+                "metadata": {
+                    "tags": []
+                },
+                "sys": {
+                    "space": {
+                        "sys": {
+                            "type": "Link",
+                            "linkType": "Space",
+                            "id": "a16rt0ezlhvr"
+                        }
+                    },
+                    "id": "2enB8xTqPrU524Qr6I2TuM",
+                    "type": "Asset",
+                    "createdAt": "2022-04-14T05:45:50.126Z",
+                    "updatedAt": "2022-04-14T05:45:50.126Z",
+                    "environment": {
+                        "sys": {
+                            "id": "master",
+                            "type": "Link",
+                            "linkType": "Environment"
+                        }
+                    },
+                    "revision": 1,
+                    "locale": "en-US"
+                },
+                "fields": {
+                    "title": "CAMILA Dangles",
+                    "file": {
+                        "url": "//images.ctfassets.net/a16rt0ezlhvr/2enB8xTqPrU524Qr6I2TuM/49c241c973ff883dd3aa05b0006e4aa2/il_1588xN.3230352192_j1vv.jpg",
+                        "details": {
+                            "size": 90745,
+                            "image": {
+                                "width": 892,
+                                "height": 892
+                            }
+                        },
+                        "fileName": "il_1588xN.3230352192_j1vv.jpg",
+                        "contentType": "image/jpeg"
+                    }
+                }
+            },
+            "shortDescription": "Sed mattis est sit amet viverra porta. Curabitur accumsan venenatis velit id ullamcorper. Aliquam vitae convallis mauris. Aenean convallis sapien a mollis aliquam. Mauris lacinia nibh sit amet lectus elementum hendrerit. Integer vestibulum tortor sit amet lacus eleifend, at venenatis felis molestie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales lacus velit, id posuere quam placerat a. Praesent in ante eget dolor vehicula sagittis. Quisque purus massa, aliquam ut dolor vel, pretium facilisis ligula. Mauris consequat, nisl luctus tristique sodales, nisl orci pulvinar justo, eget accumsan purus velit ac nibh. Ut commodo nisi at quam vulputate, sit amet consequat nulla imperdiet. Duis condimentum purus mauris, nec finibus odio fringilla porta. Donec pretium pulvinar pretium. Duis pretium dui vitae augue tristique blandit. Mauris in mi turpis."
+        }
     }
 ]

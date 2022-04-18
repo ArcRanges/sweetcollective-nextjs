@@ -1,11 +1,11 @@
 interface SectionProps {
   backgroundColor?: string;
   image: any;
-  title: string;
-  heading: string;
-  content: string;
-  buttonText: string;
-  buttonLink: string;
+  title?: string;
+  heading?: string;
+  content: any;
+  buttonText?: string;
+  buttonLink?: string;
 }
 
 type Feature = {
@@ -16,6 +16,11 @@ type Feature = {
 
 interface FeaturesSectionProps {
   features: Feature[]
+}
+
+interface PageProps {
+  pageTitle: string;
+  sections: any;
 }
 
 // Product Card
