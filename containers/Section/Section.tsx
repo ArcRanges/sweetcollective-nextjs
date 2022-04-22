@@ -39,13 +39,13 @@ export default function Section({
                     <button
                       onMouseEnter={onMouseEnter}
                       onMouseLeave={onMouseLeave}
-                      className="bg-black text-white py-2 px-4 hover:opacity-50 transition duration-100 "
+                      className="bg-black text-white py-2 px-4 hover:opacity-50 "
                     >
                       <div className="flex flex-row items-center">
                         <Small className="mb-0">{buttonText}</Small>
                         &nbsp;
                         <i
-                          className={`uil uil-arrow-right text-lg transition-all duration-300 ${
+                          className={`uil uil-arrow-right text-lg transition-all duration-200 ${
                             isHovered ? "translate-x-2" : ""
                           }`}
                         ></i>
