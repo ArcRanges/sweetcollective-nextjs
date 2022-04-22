@@ -1,7 +1,6 @@
 import { Badge } from "antd";
 import AppLink from "components/AppLink";
 import Icon from "components/Icon";
-import Small from "components/Small";
 import { useAuthContext } from "hooks/AuthContext";
 import { useLayoutContext } from "hooks/LayoutContext";
 import React from "react";
@@ -42,7 +41,7 @@ export default function Navbar() {
               </AppLink>
               <AppLink
                 className="mx-2 text-black hover:text-black"
-                href="/blog"
+                href="/posts"
               >
                 <span className="text-md">Blog</span>
               </AppLink>

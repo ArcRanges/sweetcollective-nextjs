@@ -41,3 +41,11 @@ interface ProductCardContext {
   state: ProductCardState;
   handlers: any;
 }
+
+// Post Item Card
+interface PostItemProps {
+  createdAt: string;
+  slug: string;
+  title: string;
+  imgUrl: string;
+}
