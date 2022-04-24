@@ -5,7 +5,6 @@ import ProductCard from "components/ProductCard";
 import Layout from "containers/Layout/Layout";
 import { useLayoutContext } from "hooks/LayoutContext";
 import React from "react";
-import { createClient } from "contentful";
 import { client } from "pages/api/client";
 
 const { Option } = Select;
@@ -22,7 +21,7 @@ export default function Shop({ products }: ShopPageProps) {
     <Layout>
       <Container>
         <div className="flex flex-row items-center justify-between">
-          <PageHeader title="Shop All" />
+          <PageHeader title="Shop" />
           <div className="flex flex-row items-center justify-between">
             <div className="flex items-center mr-5">
               <span
