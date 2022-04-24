@@ -1,6 +1,6 @@
 # SweetCollectiveCo
 
-A store writtein in NextJS + Strapi, made for clay jewerly maker, SweetCollectiveCo.
+A store writte in in NextJS + Contentful, made for clay jewerly maker, SweetCollectiveCo.
 
 [`View Live Demo here (in progress)`](https://sweetcollective.vercel.app/)
 
