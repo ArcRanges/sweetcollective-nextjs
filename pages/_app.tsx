@@ -3,26 +3,43 @@ import "antd/dist/antd.css";
 
 import "containers/Footer/Footer.css";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Input } from "antd";
 import { delay } from "utils";
 import AuthProvider from "hooks/AuthContext";
 import LayoutProvider from "hooks/LayoutContext";
 import cartItems from "mock/cart.json";
+import AppProvider from "hooks/AppContext";
+import createPersistedState from "use-persisted-state";
+
+const useAppState = createPersistedState("app");
+const useAuthState = createPersistedState<IAuthState>("auth");
+
+interface IAuthState {
+  cart: any;
+  authenticated: boolean;
+}
+
+type ShopFilters = {
+  sort: number;
+  tags: string[];
+};
 
 function MyApp({ Component, pageProps }) {
+  const [appState, setAppState] = useAppState({
+    shopFilters: {} as ShopFilters,
+  });
   const [state, setState] = useState({
     cartVisible: false,
     filterVisible: false,
-    sortFilter: -1,
   });
-  const [authState, setAuthState] = useState({
-    authenticated: false,
+  const [authState, setAuthState] = useAuthState({
     cart: cartItems,
+    authenticated: false,
   });
   const { authenticated } = authState;
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [password, setPassword] = useState("");
 
   const setAuthenticated = (authenticated: boolean) =>
@@ -46,6 +63,12 @@ function MyApp({ Component, pageProps }) {
     }
   };
 
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (loading) return null;
+
   if (!authenticated) {
     return (
       <>
@@ -64,6 +87,7 @@ function MyApp({ Component, pageProps }) {
               placeholder="Input page password"
               className="!max-w-xl !bg-transparent !p-5 text-center !text-white"
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleAppCheckPassword()}
               disabled={loading}
             />
             <Button
@@ -97,9 +121,11 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <AuthProvider state={[authState, setAuthState]}>
-        <LayoutProvider state={[state, setState]}>
-          <Component {...pageProps} />
-        </LayoutProvider>
+        <AppProvider state={[appState, setAppState]}>
+          <LayoutProvider state={[state, setState]}>
+            <Component {...pageProps} />
+          </LayoutProvider>
+        </AppProvider>
       </AuthProvider>
     </>
   );

@@ -1,11 +1,28 @@
-import { Drawer, Radio, Space } from "antd";
+import { Checkbox, Drawer, Radio, Space } from "antd";
 import Icon from "components/Icon";
+import { useAppContext } from "hooks/AppContext";
 import { useLayoutContext } from "hooks/LayoutContext";
 import React from "react";
 
+const options = [
+  { label: "Hot", value: "hot" },
+  { label: "New", value: "new" },
+  { label: "Trending", value: "trending" },
+  { label: "Seasonal", value: "seasonal" },
+  { label: "Limited", value: "limited" },
+];
+
+const SectionTitle = ({ children }) => (
+  <h3 className="text-2xl font-semibold">{children}</h3>
+);
+
 export default function SideFilters() {
+  const [appState, setAppState] = useAppContext();
+  const tags = appState?.shopFilters?.tags ?? [];
+  const sort = appState?.shopFilters?.sort ?? -1;
+
   const [layoutState, setLayoutState] = useLayoutContext();
-  const { filterVisible, sortFilter } = layoutState;
+  const { filterVisible } = layoutState;
 
   const onClose = () =>
     setLayoutState({
@@ -14,34 +31,66 @@ export default function SideFilters() {
     });
 
   const onSortSelect = (e: any) =>
-    setLayoutState({ ...layoutState, sortFilter: e.target.value });
+    setAppState({
+      ...appState,
+      shopFilters: { ...appState.shopFilters, sort: e?.target?.value },
+    });
+
+  const onTagsSelect = (checkedValues: any) =>
+    setAppState({
+      ...appState,
+      shopFilters: { ...appState.shopFilters, tags: checkedValues },
+    });
 
   return (
     <Drawer
       closeIcon={<Icon name="times" />}
-      title="Filters"
       placement="right"
       onClose={onClose}
       visible={filterVisible}
+      headerStyle={{ borderBottom: 0 }}
     >
       <div className="mb-4">
-        <p className="font-bold text-lg">Sort By</p>
-        <Radio.Group onChange={onSortSelect} value={sortFilter}>
+        <SectionTitle>Sort By</SectionTitle>
+        <Radio.Group onChange={onSortSelect} value={sort}>
           <Space direction="vertical">
             <Radio name="sort" value={1}>
-              Price
+              <span className="text-md">Default</span>
             </Radio>
             <Radio name="sort" value={2}>
-              Rating
+              <span className="text-md">Popularity</span>
             </Radio>
             <Radio name="sort" value={3}>
-              Popularity
+              <span className="text-md">Average Rating</span>
+            </Radio>
+            <Radio name="sort" value={4}>
+              <span className="text-md">Newest</span>
+            </Radio>
+            <Radio name="sort" value={5}>
+              <span className="text-md">Highest Price</span>
+            </Radio>
+            <Radio name="sort" value={6}>
+              <span className="text-md">Lowest Price</span>
             </Radio>
           </Space>
         </Radio.Group>
       </div>
-      <p className="font-bold text-lg">Filter By</p>
-      <p className="font-bold text-lg">Tags</p>
+
+      <div className="mb-4">
+        <SectionTitle>Tags</SectionTitle>
+        <Checkbox.Group className="w-full" onChange={onTagsSelect} value={tags}>
+          <Space
+            direction="horizontal"
+            className="flex-col justify-start !items-stretch w-full"
+          >
+            {options.map(({ label, value }) => (
+              <Checkbox className="block" value={value} key={value}>
+                {label}
+              </Checkbox>
+            ))}
+          </Space>
+        </Checkbox.Group>
+      </div>
     </Drawer>
   );
 }
