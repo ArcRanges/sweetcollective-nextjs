@@ -1,4 +1,4 @@
-import { Select } from "antd";
+import { Select, Tag } from "antd";
 import Container from "components/Container";
 import PageHeader from "components/PageHeader";
 import ProductCard from "components/ProductCard";
@@ -22,6 +22,7 @@ export default function Shop({ products }: ShopPageProps) {
       <Container>
         <div className="flex flex-row items-center justify-between">
           <PageHeader title="Shop" />
+
           <div className="flex flex-row items-center justify-between">
             <div className="flex items-center mr-5">
               <span
@@ -58,6 +59,9 @@ export default function Shop({ products }: ShopPageProps) {
           </div>
         </div>
 
+        <div className="block w-full">
+          <Tag closable>{"Hot"}</Tag>
+        </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 pb-10">
           {products.map(({ fields }, index: number) => (
             <ProductCard {...fields} key={index} />

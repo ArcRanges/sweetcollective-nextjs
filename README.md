@@ -4,6 +4,8 @@ A store writte in in NextJS + Contentful, made for clay jewerly maker, SweetColl
 
 [`View Live Demo here (in progress)`](https://sweetcollective.vercel.app/)
 
+Use the store password: SweetCollective2022
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
