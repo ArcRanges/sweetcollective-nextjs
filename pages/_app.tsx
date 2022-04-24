@@ -25,6 +25,10 @@ type ShopFilters = {
   tags: string[];
 };
 
+const initialAuthState = {
+  cart: cartItems,
+  authenticated: false,
+};
 function MyApp({ Component, pageProps }) {
   const [appState, setAppState] = useAppState({
     shopFilters: {} as ShopFilters,
@@ -33,13 +37,12 @@ function MyApp({ Component, pageProps }) {
     cartVisible: false,
     filterVisible: false,
   });
-  const [authState, setAuthState] = useAuthState({
-    cart: cartItems,
-    authenticated: false,
-  });
+  const [authState, setAuthState] = useAuthState(initialAuthState);
   const { authenticated } = authState;
 
-  const [loading, setLoading] = useState(true);
+  const [appLoading, setAppLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [isWrongPassword, setIsWrongPassword] = useState(false);
   const [password, setPassword] = useState("");
 
   const setAuthenticated = (authenticated: boolean) =>
@@ -47,6 +50,7 @@ function MyApp({ Component, pageProps }) {
 
   const handleAppCheckPassword = async () => {
     setLoading(true);
+    setIsWrongPassword(false);
     try {
       await delay(1000);
       const response = await fetch("/api/validate-session", {
@@ -56,6 +60,8 @@ function MyApp({ Component, pageProps }) {
       const { authenticated } = await response.json();
 
       setAuthenticated(authenticated);
+      setIsWrongPassword(!authenticated);
+
       setLoading(false);
     } catch (error: any) {
       console.log(error);
@@ -64,10 +70,10 @@ function MyApp({ Component, pageProps }) {
   };
 
   useEffect(() => {
-    setLoading(false);
+    setAppLoading(false);
   }, []);
 
-  if (loading) return null;
+  if (appLoading) return null;
 
   if (!authenticated) {
     return (
@@ -90,6 +96,11 @@ function MyApp({ Component, pageProps }) {
               onKeyDown={(e) => e.key === "Enter" && handleAppCheckPassword()}
               disabled={loading}
             />
+            {isWrongPassword && (
+              <p className="mt-2 text-white text-center">
+                Wrong password. Try again.
+              </p>
+            )}
             <Button
               type="primary"
               className="mt-2 !p-7 w-full !flex !items-center !justify-center !text-black !border-white !bg-white"

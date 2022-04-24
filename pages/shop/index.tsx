@@ -1,4 +1,4 @@
-import { Select } from "antd";
+import { Select, Tag } from "antd";
 import Container from "components/Container";
 import PageHeader from "components/PageHeader";
 import ProductCard from "components/ProductCard";
@@ -22,6 +22,7 @@ export default function Shop({ products }: ShopPageProps) {
       <Container>
         <div className="flex flex-row items-center justify-between">
           <PageHeader title="Shop" />
+
           <div className="flex flex-row items-center justify-between">
             <div className="flex items-center mr-5">
               <span
