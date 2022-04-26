@@ -1,32 +1,76 @@
-import { Select, Tag } from "antd";
+import { Empty, Skeleton } from "antd";
 import Container from "components/Container";
 import PageHeader from "components/PageHeader";
 import ProductCard from "components/ProductCard";
 import Layout from "containers/Layout/Layout";
 import { useLayoutContext } from "hooks/LayoutContext";
-import React from "react";
 import { client } from "pages/api/client";
+import { useAppState } from "pages/_app";
+import React, { useEffect, useState } from "react";
+import TagsList from "./components/TagsList";
 
-const { Option } = Select;
+const LoadingPlaceholder = () => (
+  <>
+    {Array(8)
+      .fill(1)
+      .map((item) => (
+        <Skeleton.Button style={{ height: 360, width: "100%" }} active />
+      ))}
+  </>
+);
 
-interface ShopPageProps {
-  products: any;
-}
-
-export default function Shop({ products }: ShopPageProps) {
+export default function Shop({ products = [] }: ShopPageProps) {
+  const [appState] = useAppState();
   const [layoutState, setLayoutState] = useLayoutContext();
   const { filterVisible } = layoutState;
+  const [state, setState] = useState({
+    loading: false,
+    products,
+  });
+  const { loading, products: shopProducts } = state;
+
+  const fetchData = async (data = {}) => {
+    setState({ ...state, loading: true });
+    console.log("🚀 ~ file: index.tsx ~ line 54 ~ fetchData ~ data", data);
+
+    const hasFilters = Object.keys(data).length > 0;
+    const payload = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+
+    try {
+      const response = await fetch("/api/products", hasFilters ? payload : {});
+      const entries = await response.json();
+
+      setState({ ...state, products: entries?.items, loading: false });
+    } catch (error) {
+      console.log(error);
+      setState({ ...state, loading: false });
+    }
+  };
+
+  useEffect(() => {
+    if (!shopProducts.length) fetchData();
+  }, []);
+
+  useEffect(() => {
+    fetchData({ filters: appState?.shopFilters ?? {} });
+  }, [appState?.shopFilters?.tags]);
 
   return (
     <Layout>
       <Container>
-        <div className="flex flex-row items-center justify-between">
+        <div className="flex flex-row items-center justify-between ">
           <PageHeader title="Shop" />
 
           <div className="flex flex-row items-center justify-between">
             <div className="flex items-center mr-5">
               <span
-                className="font-bold text-blue-500 cursor-pointer"
+                className="font-bold hover:opacity-70 cursor-pointer"
                 onClick={() =>
                   setLayoutState({
                     ...layoutState,
@@ -37,39 +81,32 @@ export default function Shop({ products }: ShopPageProps) {
                 Filters
               </span>
             </div>
-            <div className="flex items-center">
-              <span className="font-bold">Sort By</span>
-              <Select
-                dropdownClassName="!font-bold"
-                bordered={false}
-                style={{ width: 120 }}
-                placeholder="Select Sort"
-              >
-                <Option name="sort" value="price">
-                  Price
-                </Option>
-                <Option name="sort" value="rating">
-                  Rating
-                </Option>
-                <Option name="sort" value="popularity">
-                  Popularity
-                </Option>
-              </Select>
-            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 pb-10">
-          {products.map(({ fields }, index: number) => (
-            <ProductCard {...fields} key={index} />
-          ))}
-        </div>
+        <TagsList />
+
+        {shopProducts?.length ? (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-8 pb-10">
+            {loading ? (
+              <LoadingPlaceholder />
+            ) : (
+              <>
+                {shopProducts.map(({ fields }, index: number) => (
+                  <ProductCard {...fields} key={index} />
+                ))}
+              </>
+            )}
+          </div>
+        ) : (
+          <Empty className="mx-auto !my-10" description="No products found" />
+        )}
       </Container>
     </Layout>
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const entries = (await client.getEntries({
     content_type: "products",
   })) as any;

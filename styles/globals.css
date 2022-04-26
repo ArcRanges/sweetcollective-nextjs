@@ -61,3 +61,10 @@ h1 {
 .ant-btn-loading-icon {
   display: flex !important;
 }
+.ant-tag {
+  align-items: center;
+  display: inline-flex !important;
+}
+.ant-drawer-content-wrapper {
+  width: 325px !important;
+}

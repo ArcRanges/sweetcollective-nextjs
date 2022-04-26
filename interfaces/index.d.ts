@@ -1,3 +1,18 @@
+// App-level State and Props
+interface IAppState {
+  shopFilters: ShopFilters;
+}
+
+interface IAuthState {
+  cart: any;
+  authenticated: boolean;
+}
+
+type ShopFilters = {
+  sort: number;
+  tags: string[];
+};
+
 interface SectionProps {
   backgroundColor?: string;
   image: any;
@@ -48,4 +63,9 @@ interface PostItemProps {
   slug: string;
   title: string;
   imgUrl: string;
+}
+
+// Shop Page
+interface ShopPageProps {
+  products: any;
 }

@@ -16,6 +16,12 @@ const SectionTitle = ({ children }) => (
   <h3 className="text-2xl font-semibold">{children}</h3>
 );
 
+const Span = ({ children }) => (
+  <span className="text-md hover:text-cashmere-600 transition-all ease-in-out">
+    {children}
+  </span>
+);
+
 export default function SideFilters() {
   const [appState, setAppState] = useAppContext();
   const tags = appState?.shopFilters?.tags ?? [];
@@ -49,28 +55,29 @@ export default function SideFilters() {
       onClose={onClose}
       visible={filterVisible}
       headerStyle={{ borderBottom: 0 }}
+      bodyStyle={{ padding: 30 }}
     >
       <div className="mb-4">
         <SectionTitle>Sort By</SectionTitle>
         <Radio.Group onChange={onSortSelect} value={sort}>
           <Space direction="vertical">
-            <Radio name="sort" value={1}>
-              <span className="text-md">Default</span>
+            <Radio name="sort" value={-1}>
+              <Span>Default</Span>
             </Radio>
-            <Radio name="sort" value={2}>
-              <span className="text-md">Popularity</span>
+            <Radio name="sort" value="popular">
+              <Span>Popularity</Span>
             </Radio>
-            <Radio name="sort" value={3}>
-              <span className="text-md">Average Rating</span>
+            <Radio name="sort" value="rating">
+              <Span>Average Rating</Span>
             </Radio>
-            <Radio name="sort" value={4}>
-              <span className="text-md">Newest</span>
+            <Radio name="sort" value="newest">
+              <Span>Newest</Span>
             </Radio>
-            <Radio name="sort" value={5}>
-              <span className="text-md">Highest Price</span>
+            <Radio name="sort" value="highest_price">
+              <Span>Highest Price</Span>
             </Radio>
-            <Radio name="sort" value={6}>
-              <span className="text-md">Lowest Price</span>
+            <Radio name="sort" value="lowest_price">
+              <Span>Lowest Price</Span>
             </Radio>
           </Space>
         </Radio.Group>
@@ -85,7 +92,7 @@ export default function SideFilters() {
           >
             {options.map(({ label, value }) => (
               <Checkbox className="block" value={value} key={value}>
-                {label}
+                <Span>{label}</Span>
               </Checkbox>
             ))}
           </Space>
