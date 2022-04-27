@@ -1,3 +1,4 @@
+import { message } from "antd";
 import AppLink from "components/AppLink";
 import Button from "components/Button";
 import Container from "components/Container";
@@ -9,10 +10,35 @@ import Layout from "containers/Layout/Layout";
 import { useAuthContext } from "hooks/AuthContext";
 import { useLayoutContext } from "hooks/LayoutContext";
 import products from "mock/products.json";
+import { client } from "pages/api/client";
 import { useState } from "react";
-import { delay } from "utils";
+import { delay, truncate } from "utils";
 
-export default function Product() {
+interface ProductPageProps {
+  product: {
+    fields: {
+      price: number;
+      shortDescription: string;
+      slug: string;
+      tags: string[];
+      thumbnail: any;
+      title: string;
+    };
+    sys: any;
+  };
+}
+
+const Title = ({ children }) => (
+  <p className="font-bold font-sans text-2xl">{children}</p>
+);
+
+const Price = ({ children }) => (
+  <p className="mb-3 text-3xl text-yellow-700">${children}</p>
+);
+
+export default function Product({ product }: ProductPageProps) {
+  const { fields, sys } = product;
+  // console.log("🚀 ~ file: [slug].tsx ~ line 36 ~ Product ~ productInfo", sys);
   const [state, setState] = useState({
     addToCartLoading: false,
     selectedTabIndex: 0,
@@ -36,7 +62,7 @@ export default function Product() {
 
   const isActiveTab = (index: number) => selectedTabIndex === index;
 
-  const handleAddToCart = async (id: number) => {
+  const handleAddToCart = async (id: string) => {
     setState({ ...state, addToCartLoading: true });
     await delay(1000);
     setState({ ...state, addToCartLoading: false });
@@ -55,54 +81,43 @@ export default function Product() {
         ...authState,
         cart: newCart,
       });
-      return;
+    } else {
+      // not found
+      setAuthState({
+        ...authState,
+        cart: [
+          ...cart,
+          {
+            id,
+            name: truncate(fields.title),
+            price: fields.price.toFixed(2),
+            img_url: `https:${fields?.thumbnail?.fields?.file?.url}`,
+            quantity: 1,
+          },
+        ],
+      });
     }
-
-    // not found
-    setAuthState({
-      ...authState,
-      cart: [
-        ...cart,
-        {
-          id,
-          name: "Flora Dangles...",
-          price: 37.99,
-          img_url:
-            "https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg",
-          size: "M",
-          color: "Green",
-          quantity: 1,
-        },
-      ],
-    });
+    message.success("Added to Cart");
   };
 
   return (
     <Layout>
       <Container className="py-10">
-        {/* <PageHeader title={"FLORA Dangles | Polymer Clay Earrings"} /> */}
-        <div className="mb-10">
-          <Small>Home / Product / Flora Dangles Polymer Clay</Small>
-        </div>
-
         <div className="mb-10 grid md:grid-cols-2 md:gap-16">
           <div className="">
             <div className="mb-4">
-              <img src={url} className="w-full" height="500" width="500" />
-            </div>
-            <div className="grid grid-cols-4">
-              <img className="mx-auto" src={url} height="100" width="100" />
-              <img className="mx-auto" src={url} height="100" width="100" />
-              <img className="mx-auto" src={url} height="100" width="100" />
-              <img className="mx-auto" src={url} height="100" width="100" />
+              <img
+                src={`https:${fields?.thumbnail?.fields?.file?.url}`}
+                className="w-full"
+                height="500"
+                width="500"
+              />
             </div>
           </div>
           <div>
-            <p className="font-bold font-sans text-2xl">{title}</p>
-
-            <p className="mb-3 text-3xl text-yellow-700">${price}</p>
-
-            <p className="mb-3">{description}</p>
+            <Title>{fields?.title}</Title>
+            <Price>{fields?.price?.toFixed(2)}</Price>
+            <p className="mb-3">{fields?.shortDescription}</p>
 
             <div className="flex justify-between mb-3">
               <Button className="w-14 mr-3">
@@ -110,7 +125,7 @@ export default function Product() {
               </Button>
               <Button
                 className=""
-                onClick={() => handleAddToCart(99)}
+                onClick={() => handleAddToCart(sys.id)}
                 loading={addToCartLoading}
               >
                 ADD TO CART
@@ -275,32 +290,20 @@ export default function Product() {
   );
 }
 
-// export async function getStaticPaths() {
-//   const { data: posts } = await (
-//     await fetch(`${BASE_API_URL}/api/posts`)
-//   ).json();
+export async function getServerSideProps({ params }) {
+  const { slug } = params;
+  const response = await client.getEntries({
+    content_type: "products",
+    "fields.slug[match]": slug,
+  });
 
-//   const paths = posts.map((post) => ({
-//     params: { slug: post.attributes.slug },
-//   }));
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// }
-
-// export async function getStaticProps({ params }) {
-//   //   console.log(params);
-//   const { slug } = params;
-
-//   const { data } = await (
-//     await fetch(`${BASE_API_URL}/api/posts?filters[slug][$eq]=${slug}`)
-//   ).json();
-
-//   const post = data[0];
-
-//   return {
-//     props: { post },
-//   };
-// }
+  if (response?.items?.length > 0) {
+    const { fields, sys } = response.items[0];
+    return {
+      props: { product: { fields, sys } },
+    };
+  }
+  return {
+    props: {},
+  };
+}

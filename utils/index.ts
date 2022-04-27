@@ -15,3 +15,6 @@ export const debounce = (func: any, timeout = 1000) => {
       timer = setTimeout(() => { func.apply(this, args); }, timeout);
     };
   }
+
+// trims a string to a desired length
+export const truncate = (str: string, limit = 30) => str.length > limit ? `${str.substring(0, limit)}...` : str;
