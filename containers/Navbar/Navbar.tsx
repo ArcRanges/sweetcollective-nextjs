@@ -41,7 +41,7 @@ export default function Navbar() {
               </AppLink>
               <AppLink
                 className="mx-2 text-black hover:text-black"
-                href="/posts"
+                href="/blog"
               >
                 <span className="text-md">Blog</span>
               </AppLink>

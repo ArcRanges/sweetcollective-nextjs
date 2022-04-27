@@ -2,7 +2,8 @@ import { Checkbox, Drawer, Radio, Space } from "antd";
 import Icon from "components/Icon";
 import { useAppContext } from "hooks/AppContext";
 import { useLayoutContext } from "hooks/LayoutContext";
-import React from "react";
+import React, { useCallback } from "react";
+import { debounce } from "utils";
 
 const options = [
   { label: "Hot", value: "hot" },
@@ -42,11 +43,12 @@ export default function SideFilters() {
       shopFilters: { ...appState.shopFilters, sort: e?.target?.value },
     });
 
-  const onTagsSelect = (checkedValues: any) =>
+  const onTagsSelect = (checkedValues: any) => {
     setAppState({
       ...appState,
       shopFilters: { ...appState.shopFilters, tags: checkedValues },
     });
+  };
 
   return (
     <Drawer

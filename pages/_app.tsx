@@ -15,7 +15,7 @@ import createPersistedState from "use-persisted-state";
 export const useAppState = createPersistedState<IAppState>("app");
 const useAuthState = createPersistedState<IAuthState>("auth");
 
-const initalAppState = {
+export const initalAppState = {
   shopFilters: {
     sort: -1,
     tags: [],

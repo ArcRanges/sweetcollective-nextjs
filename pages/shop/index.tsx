@@ -5,7 +5,7 @@ import ProductCard from "components/ProductCard";
 import Layout from "containers/Layout/Layout";
 import { useLayoutContext } from "hooks/LayoutContext";
 import { client } from "pages/api/client";
-import { useAppState } from "pages/_app";
+import { initalAppState, useAppState } from "pages/_app";
 import React, { useEffect, useState } from "react";
 import TagsList from "./components/TagsList";
 
@@ -20,7 +20,7 @@ const LoadingPlaceholder = () => (
 );
 
 export default function Shop({ products = [] }: ShopPageProps) {
-  const [appState] = useAppState();
+  const [appState, setAppState] = useAppState();
   const [layoutState, setLayoutState] = useLayoutContext();
   const { filterVisible } = layoutState;
   const [state, setState] = useState({
@@ -31,7 +31,6 @@ export default function Shop({ products = [] }: ShopPageProps) {
 
   const fetchData = async (data = {}) => {
     setState({ ...state, loading: true });
-    console.log("🚀 ~ file: index.tsx ~ line 54 ~ fetchData ~ data", data);
 
     const hasFilters = Object.keys(data).length > 0;
     const payload = {
@@ -55,6 +54,11 @@ export default function Shop({ products = [] }: ShopPageProps) {
 
   useEffect(() => {
     if (!shopProducts.length) fetchData();
+
+    return () => {
+      // on onmount clear filters state
+      setAppState({ ...appState, shopFilters: initalAppState?.shopFilters });
+    };
   }, []);
 
   useEffect(() => {

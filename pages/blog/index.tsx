@@ -1,80 +1,40 @@
 import Container from "components/Container";
 import PageHeader from "components/PageHeader";
 import Layout from "containers/Layout/Layout";
-import Image from "next/image";
-import Link from "next/link";
+import { client } from "pages/api/client";
 import React from "react";
+import PostItem from "./components/PostItem";
 
-export default function index() {
+export default function index({ posts }: any) {
   return (
     <Layout>
       <Container>
-        <PageHeader title="BLOG" />
+        <PageHeader title="Blog" />
         <div className="grid grid-cols-3 gap-8 py-3">
-          <Link href="/blog/sample-blog-post">
-            <div className="p-7 bg-white shadow-md hover:shadow-lg hover:bg-cashmere-300 cursor-pointer transition-all duration-400">
-              <span className="text-2xl block font-bold mb-2">
-                What Makes A Great Artist
-              </span>
-              <Image
-                src="https://i.etsystatic.com/22564438/r/il/4898d2/2979021780/il_794xN.2979021780_8n3o.jpg"
-                height="200"
-                width="300"
-              />
-            </div>
-          </Link>
-          <div className="p-7 bg-white shadow-md hover:shadow-lg hover:bg-cashmere-300 cursor-pointer transition-all duration-400">
-            <span className="text-2xl block font-bold mb-2">
-              A Heart For Everyone
-            </span>
-            <Image
-              src="https://www.shingirl.com/media/product/K/-/K-4-.jpg"
-              height="200"
-              width="300"
+          {posts?.map(({ fields, sys }: any, key: number) => (
+            <PostItem
+              key={key}
+              slug={fields?.slug}
+              title={fields?.title}
+              createdAt={sys?.createdAt}
+              imgUrl={fields?.featuredImage?.fields?.file?.url}
             />
-          </div>
-          <div className="p-7 bg-white shadow-md hover:shadow-lg hover:bg-cashmere-300 cursor-pointer transition-all duration-400">
-            <span className="text-2xl block font-bold mb-2">
-              A Beautiful Necklace
-            </span>
-            <Image
-              src="https://i.etsystatic.com/22564438/r/il/4898d2/2979021780/il_794xN.2979021780_8n3o.jpg"
-              height="200"
-              width="300"
-            />
-          </div>
-          <div className="p-7 bg-white shadow-md hover:shadow-lg hover:bg-cashmere-300 cursor-pointer transition-all duration-400">
-            <span className="text-2xl block font-bold mb-2">
-              What Makes A Great Artist
-            </span>
-            <Image
-              src="https://i.etsystatic.com/22564438/r/il/4898d2/2979021780/il_794xN.2979021780_8n3o.jpg"
-              height="200"
-              width="300"
-            />
-          </div>
-          <div className="p-7 bg-white shadow-md hover:shadow-lg hover:bg-cashmere-300 cursor-pointer transition-all duration-400">
-            <span className="text-2xl block font-bold mb-2">
-              A Heart For Everyone
-            </span>
-            <Image
-              src="https://www.shingirl.com/media/product/K/-/K-4-.jpg"
-              height="200"
-              width="300"
-            />
-          </div>
-          <div className="p-7 bg-white shadow-md hover:shadow-lg hover:bg-cashmere-300 cursor-pointer transition-all duration-400">
-            <span className="text-2xl block font-bold mb-2">
-              A Beautiful Necklace
-            </span>
-            <Image
-              src="https://i.etsystatic.com/22564438/r/il/4898d2/2979021780/il_794xN.2979021780_8n3o.jpg"
-              height="200"
-              width="300"
-            />
-          </div>
+          ))}
         </div>
       </Container>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const { items: posts } = (await client.getEntries({
+    content_type: "post",
+    order: "sys.createdAt",
+  })) as any;
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }
