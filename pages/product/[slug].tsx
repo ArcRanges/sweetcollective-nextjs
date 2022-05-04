@@ -1,3 +1,4 @@
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { message } from "antd";
 import AppLink from "components/AppLink";
 import Button from "components/Button";
@@ -18,6 +19,7 @@ interface ProductPageProps {
   product: {
     fields: {
       price: number;
+      longDescription: any;
       shortDescription: string;
       slug: string;
       tags: string[];
@@ -38,7 +40,7 @@ const Price = ({ children }) => (
 
 export default function Product({ product }: ProductPageProps) {
   const { fields, sys } = product;
-  // console.log("🚀 ~ file: [slug].tsx ~ line 36 ~ Product ~ productInfo", sys);
+  console.log("🚀 ~ file: [slug].tsx ~ line 36 ~ Product ~ fields", fields);
   const [state, setState] = useState({
     addToCartLoading: false,
     selectedTabIndex: 0,
@@ -48,17 +50,6 @@ export default function Product({ product }: ProductPageProps) {
   const [authState, setAuthState] = useAuthContext();
   const { cart } = authState;
   const relatedProducts: any = [...products].splice(0, 4);
-  const { id, url, title, price, tags, description }: any = {
-    id: 1,
-    url: "https://i.etsystatic.com/24311168/c/2331/1853/39/49/il/3e601d/3011045358/il_340x270.3011045358_41dz.jpg",
-    title:
-      "FLORA Dangles | Polymer Clay Earrings | Pressed Flower Earrings | Pressed Daisy Dangles Earrings | Ceramic Earrings | Minimalist Boho",
-    price: 37.99,
-    tags: ["Earring"],
-    slug: "flora-dangles-polymer-clay",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.",
-  };
 
   const isActiveTab = (index: number) => selectedTabIndex === index;
 
@@ -140,94 +131,22 @@ export default function Product({ product }: ProductPageProps) {
           </div>
         </div>
 
-        <div className="border-t border-b py-10">
-          <div className="flex flex-row justify-center">
-            <div className="mr-10">
-              <AppLink
-                href="#"
-                className={`${
-                  isActiveTab(0)
-                    ? "hover:!opacity-100 border-b-2 border-yellow-700"
-                    : ""
-                }`}
-                onClick={(e: any) => e.preventDefault()}
-              >
-                <span
-                  className={`cursor-pointer text-2xl ${
-                    !isActiveTab(0) ? "text-gray-300" : "text-black"
-                  } `}
-                  onClick={() => setState({ ...state, selectedTabIndex: 0 })}
-                >
-                  Description
-                </span>
-              </AppLink>
-            </div>
-            <div className="mr-10">
-              <AppLink
-                href="#"
-                className={`${
-                  isActiveTab(1)
-                    ? "hover:!opacity-100 border-b-2 border-yellow-700"
-                    : ""
-                }`}
-                onClick={(e: any) => e.preventDefault()}
-              >
-                <span
-                  className={`cursor-pointer text-2xl ${
-                    !isActiveTab(1) ? "text-gray-300" : "text-black"
-                  }`}
-                  onClick={() => setState({ ...state, selectedTabIndex: 1 })}
-                >
-                  More Information
-                </span>
-              </AppLink>
-            </div>
-            <div>
-              <AppLink
-                href="#"
-                className={`${
-                  isActiveTab(2)
-                    ? "hover:!opacity-100 border-b-2 border-yellow-700"
-                    : ""
-                }`}
-                onClick={(e: any) => e.preventDefault()}
-              >
-                <span
-                  className={`cursor-pointer text-2xl ${
-                    !isActiveTab(2) ? "text-gray-300" : "text-black"
-                  }`}
-                  onClick={() => setState({ ...state, selectedTabIndex: 2 })}
-                >
-                  Reviews
-                </span>
-              </AppLink>
-            </div>
-          </div>
-        </div>
+        <Tabs.TabSelect
+          options={["Description", "More Information", "Reviews"]}
+          activeTabIndex={selectedTabIndex}
+          onTabSelect={(id: number) =>
+            setState({ ...state, selectedTabIndex: id })
+          }
+        />
 
         <div className="py-10">
           <div className="grid md:grid-cols-2 gap-16">
             <Tabs activeTabIndex={selectedTabIndex}>
-              <Tabs.Tab title="Description">
-                <p className="mb-3">
-                  With ultralight, quality cotton canvas, the JanSport Houston
-                  backpack is ideal for a life-on-the-go. This backpack features
-                  premium faux leather bottom and trim details, padded 15 in
-                  laptop sleeve and tricot lined tablet sleeve
-                </p>
-                <p className="mb-3">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.
-                  Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.
-                </p>
-                <p className="mb-3">
-                  With ultralight, quality cotton canvas, the JanSport Houston
-                  backpack is ideal for a life-on-the-go. This backpack features
-                  premium faux leather bottom and trim details, padded 15 in
-                  laptop sleeve and tricot lined tablet sleeve
-                </p>
-              </Tabs.Tab>
+              {fields?.longDescription && (
+                <Tabs.Tab title="Description">
+                  {documentToReactComponents(fields?.longDescription)}
+                </Tabs.Tab>
+              )}
               <Tabs.Tab title="More Information">
                 <p className="mb-3">
                   With ultralight, quality cotton canvas, the JanSport Houston

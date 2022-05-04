@@ -69,3 +69,9 @@ interface PostItemProps {
 interface ShopPageProps {
   products: any;
 }
+
+interface TabSelectProps {
+  options: string[];
+  activeTabIndex: number;
+  onTabSelect: (i: number) => void;
+}
