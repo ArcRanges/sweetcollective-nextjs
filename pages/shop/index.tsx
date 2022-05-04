@@ -13,8 +13,12 @@ const LoadingPlaceholder = () => (
   <>
     {Array(8)
       .fill(1)
-      .map((item) => (
-        <Skeleton.Button style={{ height: 360, width: "100%" }} active />
+      .map((item, index) => (
+        <Skeleton.Button
+          key={index}
+          style={{ height: 360, width: "100%" }}
+          active
+        />
       ))}
   </>
 );
