@@ -10,7 +10,7 @@ export default function TabSelect({
     <div className="border-t border-b py-10">
       <div className="flex flex-row justify-center">
         {options.map((opt: string, index: number) => (
-          <div className="mr-10">
+          <div className="mr-10" key={index}>
             <AppLink
               href="#"
               className={`${
