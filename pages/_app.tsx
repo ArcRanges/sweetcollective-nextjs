@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "antd/dist/antd.css";
+import "../styles/heart.css";
 
 import "containers/Footer/Footer.css";
 import Head from "next/head";
@@ -12,27 +13,23 @@ import cartItems from "mock/cart.json";
 import AppProvider from "hooks/AppContext";
 import createPersistedState from "use-persisted-state";
 
-const useAppState = createPersistedState("app");
+export const useAppState = createPersistedState<IAppState>("app");
 const useAuthState = createPersistedState<IAuthState>("auth");
 
-interface IAuthState {
-  cart: any;
-  authenticated: boolean;
-}
-
-type ShopFilters = {
-  sort: number;
-  tags: string[];
+export const initalAppState = {
+  shopFilters: {
+    sort: -1,
+    tags: [],
+  },
 };
 
 const initialAuthState = {
   cart: cartItems,
   authenticated: false,
 };
+
 function MyApp({ Component, pageProps }) {
-  const [appState, setAppState] = useAppState({
-    shopFilters: {} as ShopFilters,
-  });
+  const [appState, setAppState] = useAppState(initalAppState);
   const [state, setState] = useState({
     cartVisible: false,
     filterVisible: false,
@@ -61,7 +58,6 @@ function MyApp({ Component, pageProps }) {
 
       setAuthenticated(authenticated);
       setIsWrongPassword(!authenticated);
-
       setLoading(false);
     } catch (error: any) {
       console.log(error);
