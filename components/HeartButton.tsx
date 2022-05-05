@@ -23,7 +23,7 @@ export default function HeartButton({
           <g
             id="Group"
             fill="none"
-            fill-rule="evenodd"
+            fillRule="evenodd"
             transform="translate(467 392)"
           >
             <path
