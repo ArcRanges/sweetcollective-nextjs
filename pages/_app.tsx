@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "antd/dist/antd.css";
+import "../styles/heart.css";
 
 import "containers/Footer/Footer.css";
 import Head from "next/head";

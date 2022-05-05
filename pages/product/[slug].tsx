@@ -1,11 +1,8 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { message } from "antd";
-import AppLink from "components/AppLink";
-import Button from "components/Button";
+import AppButton from "components/Button";
 import Container from "components/Container";
-import Icon from "components/Icon";
 import ProductCard from "components/ProductCard";
-import Small from "components/Small";
 import Tabs from "components/Tabs";
 import Layout from "containers/Layout/Layout";
 import { useAuthContext } from "hooks/AuthContext";
@@ -14,33 +11,17 @@ import products from "mock/products.json";
 import { client } from "pages/api/client";
 import { useState } from "react";
 import { delay, truncate } from "utils";
+import ProductInfo from "./components/ProductInfo";
 
 interface ProductPageProps {
   product: {
-    fields: {
-      price: number;
-      longDescription: any;
-      shortDescription: string;
-      slug: string;
-      tags: string[];
-      thumbnail: any;
-      title: string;
-    };
+    fields: Omit<ProductItem, "id">;
     sys: any;
   };
 }
 
-const Title = ({ children }) => (
-  <p className="font-bold font-sans text-2xl">{children}</p>
-);
-
-const Price = ({ children }) => (
-  <p className="mb-3 text-3xl text-yellow-700">${children}</p>
-);
-
 export default function Product({ product }: ProductPageProps) {
   const { fields, sys } = product;
-  console.log("🚀 ~ file: [slug].tsx ~ line 36 ~ Product ~ fields", fields);
   const [state, setState] = useState({
     addToCartLoading: false,
     selectedTabIndex: 0,
@@ -50,8 +31,6 @@ export default function Product({ product }: ProductPageProps) {
   const [authState, setAuthState] = useAuthContext();
   const { cart } = authState;
   const relatedProducts: any = [...products].splice(0, 4);
-
-  const isActiveTab = (index: number) => selectedTabIndex === index;
 
   const handleAddToCart = async (id: string) => {
     setState({ ...state, addToCartLoading: true });
@@ -105,34 +84,17 @@ export default function Product({ product }: ProductPageProps) {
               />
             </div>
           </div>
-          <div>
-            <Title>{fields?.title}</Title>
-            <Price>{fields?.price?.toFixed(2)}</Price>
-            <p className="mb-3">{fields?.shortDescription}</p>
-
-            <div className="flex justify-between mb-3">
-              <Button className="w-14 mr-3">
-                <Icon name="heart" />
-              </Button>
-              <Button
-                className=""
-                onClick={() => handleAddToCart(sys.id)}
-                loading={addToCartLoading}
-              >
-                ADD TO CART
-              </Button>
-              <Button className="w-14 ml-3">
-                <Icon name="share" />
-              </Button>
-            </div>
-            <div>
-              <Button type="ghost">BUY NOW</Button>
-            </div>
-          </div>
+          <ProductInfo
+            title={fields?.title}
+            price={fields?.price}
+            shortDescription={fields?.shortDescription}
+            handleAddToCart={() => handleAddToCart(sys.id)}
+            addToCartLoading={addToCartLoading}
+          />
         </div>
 
         <Tabs.TabSelect
-          options={["Description", "More Information", "Reviews"]}
+          options={["Description", "Reviews"]}
           activeTabIndex={selectedTabIndex}
           onTabSelect={(id: number) =>
             setState({ ...state, selectedTabIndex: id })
@@ -140,14 +102,16 @@ export default function Product({ product }: ProductPageProps) {
         />
 
         <div className="py-10">
-          <div className="grid md:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1">
             <Tabs activeTabIndex={selectedTabIndex}>
-              {fields?.longDescription && (
-                <Tabs.Tab title="Description">
+              {fields?.longDescription ? (
+                <Tabs.Tab>
                   {documentToReactComponents(fields?.longDescription)}
                 </Tabs.Tab>
+              ) : (
+                <p>No description provided.</p>
               )}
-              <Tabs.Tab title="More Information">
+              {/* <Tabs.Tab title="More Information">
                 <p className="mb-3">
                   With ultralight, quality cotton canvas, the JanSport Houston
                   backpack is ideal for a life-on-the-go. This backpack features
@@ -166,32 +130,16 @@ export default function Product({ product }: ProductPageProps) {
                   premium faux leather bottom and trim details, padded 15 in
                   laptop sleeve and tricot lined tablet sleeve
                 </p>
-              </Tabs.Tab>
-              <Tabs.Tab title="Reviews">
-                <p className="mb-3">
-                  With ultralight, quality cotton canvas, the JanSport Houston
-                  backpack is ideal for a life-on-the-go. This backpack features
-                  premium faux leather bottom and trim details, padded 15 in
-                  laptop sleeve and tricot lined tablet sleeve
-                </p>
-                <p className="mb-3">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.
-                  Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit.Vivamus mollis venenatis mi, ac luctus ipsum finibus et.
-                </p>
-                <p className="mb-3">
-                  With ultralight, quality cotton canvas, the JanSport Houston
-                  backpack is ideal for a life-on-the-go. This backpack features
-                  premium faux leather bottom and trim details, padded 15 in
-                  laptop sleeve and tricot lined tablet sleeve
-                </p>
+              </Tabs.Tab> */}
+              <Tabs.Tab>
+                <p className="text-center">No reviews yet. Add one below.</p>
+                <AppButton className="max-w-md mx-auto">Add Review</AppButton>
               </Tabs.Tab>
             </Tabs>
 
-            <div className="flex justify-center">
+            {/* <div className="flex justify-center">
               <img src="https://demo3.drfuri.com/supro/wp-content/uploads/sites/3/2018/05/6b-470x600.jpg" />
-            </div>
+            </div> */}
           </div>
         </div>
 

@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Tab({ title, children }) {
+export default function Tab({ title, children }: any) {
   return (
     <div>
-      <span className="text-xs">{title}</span>
+      {title && <span className="text-xs">{title}</span>}
       {children}
     </div>
   );

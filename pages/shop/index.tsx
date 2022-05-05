@@ -7,6 +7,7 @@ import { useLayoutContext } from "hooks/LayoutContext";
 import { client } from "pages/api/client";
 import { initalAppState, useAppState } from "pages/_app";
 import React, { useEffect, useState } from "react";
+import { delay } from "utils";
 import TagsList from "./components/TagsList";
 
 const LoadingPlaceholder = () => (
@@ -35,7 +36,7 @@ export default function Shop({ products = [] }: ShopPageProps) {
 
   const fetchData = async (data = {}) => {
     setState({ ...state, loading: true });
-
+    await delay(1000);
     const hasFilters = Object.keys(data).length > 0;
     const payload = {
       method: "POST",

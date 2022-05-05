@@ -46,6 +46,8 @@ interface ProductItem {
   slug: string;
   tags: string[];
   thumbnail: any;
+  longDescription: any;
+  shortDescription: string;
 }
 
 interface ProductCardState extends ProductItem {
