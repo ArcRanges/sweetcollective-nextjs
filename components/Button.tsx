@@ -12,6 +12,7 @@ export default function AppButton({
     primary: "!bg-black !text-white",
     ghost:
       "!border !border-solid !border-black hover:!bg-black hover:!text-white !bg-transparent !text-black ",
+    default: "",
   };
 
   return (
