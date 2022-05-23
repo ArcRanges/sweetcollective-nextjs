@@ -4,8 +4,12 @@ interface IAppState {
 }
 
 interface IAuthState {
-  cart: any;
+  // cart: any;
   authenticated: boolean;
+}
+
+interface ICartState {
+  cart: any[];
 }
 
 type ShopFilters = {

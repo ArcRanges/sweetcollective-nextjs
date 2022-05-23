@@ -4,17 +4,19 @@ import "../styles/heart.css";
 
 import "containers/Footer/Footer.css";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { Button, Input } from "antd";
 import { delay } from "utils";
 import AuthProvider from "hooks/AuthContext";
 import LayoutProvider from "hooks/LayoutContext";
 import cartItems from "mock/cart.json";
 import AppProvider from "hooks/AppContext";
-import createPersistedState from "use-persisted-state";
+import createPersistedState from "packages/use-persisted-state";
+import CartProvider, { cartReducer } from "hooks/CartContext";
 
-export const useAppState = createPersistedState<IAppState>("app");
-const useAuthState = createPersistedState<IAuthState>("auth");
+export const useAppState = createPersistedState("app");
+const useAuthState = createPersistedState("auth");
+const useCartState = createPersistedState("cart");
 
 export const initalAppState = {
   shopFilters: {
@@ -24,8 +26,11 @@ export const initalAppState = {
 };
 
 const initialAuthState = {
-  cart: cartItems,
   authenticated: false,
+};
+
+const initialCartState = {
+  cart: [],
 };
 
 function MyApp({ Component, pageProps }) {
@@ -35,6 +40,8 @@ function MyApp({ Component, pageProps }) {
     filterVisible: false,
   });
   const [authState, setAuthState] = useAuthState(initialAuthState);
+  const [cartState, setCartState] = useCartState(initialCartState, cartReducer);
+
   const { authenticated } = authState;
 
   const [appLoading, setAppLoading] = useState(true);
@@ -129,9 +136,11 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <AuthProvider state={[authState, setAuthState]}>
         <AppProvider state={[appState, setAppState]}>
-          <LayoutProvider state={[state, setState]}>
-            <Component {...pageProps} />
-          </LayoutProvider>
+          <CartProvider state={[cartState, setCartState]}>
+            <LayoutProvider state={[state, setState]}>
+              <Component {...pageProps} />
+            </LayoutProvider>
+          </CartProvider>
         </AppProvider>
       </AuthProvider>
     </>

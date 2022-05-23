@@ -8,6 +8,7 @@ import ProductCard from "components/ProductCard";
 import Tabs from "components/Tabs";
 import Layout from "containers/Layout/Layout";
 import { useAuthContext } from "hooks/AuthContext";
+import { useCartContext } from "hooks/CartContext";
 import { useLayoutContext } from "hooks/LayoutContext";
 import products from "mock/products.json";
 import { client } from "pages/api/client";
@@ -32,7 +33,9 @@ export default function Product({ product }: ProductPageProps) {
   const [isLiked, setIsLiked] = useReducer((prev) => !prev, false);
   const [layoutState, setLayoutState] = useLayoutContext();
   const [authState, setAuthState] = useAuthContext();
-  const { cart } = authState;
+  const [cartState, setCartState] = useCartContext();
+  const { cart } = cartState;
+
   const relatedProducts: any = [...products].splice(0, 4);
 
   const handleAddToCart = async (id: string) => {
@@ -41,41 +44,26 @@ export default function Product({ product }: ProductPageProps) {
     setState({ ...state, addToCartLoading: false });
     setLayoutState({ ...layoutState, cartVisible: true });
 
-    // check if item id already exists
-    const item = cart.find((cartItem: any) => cartItem.id === id);
+    const item = {
+      id,
+      name: truncate(fields.title),
+      slug: fields.slug,
+      price: fields.price.toFixed(2),
+      img_url: `https:${fields?.thumbnail?.fields?.file?.url}`,
+      quantity: 1,
+    };
 
-    if (item) {
-      const newCart = cart.map((cartItem: any) =>
-        cartItem.id === id
-          ? { ...cartItem, quantity: cartItem.quantity + 1 }
-          : cartItem
-      );
-      setAuthState({
-        ...authState,
-        cart: newCart,
-      });
-    } else {
-      // not found
-      setAuthState({
-        ...authState,
-        cart: [
-          ...cart,
-          {
-            id,
-            name: truncate(fields.title),
-            price: fields.price.toFixed(2),
-            img_url: `https:${fields?.thumbnail?.fields?.file?.url}`,
-            quantity: 1,
-          },
-        ],
-      });
-    }
+    setCartState({
+      type: "ADD_TO_CART",
+      item,
+    });
+
     message.success("Added to Cart");
   };
 
   return (
     <Layout>
-      <Container className="y-10">
+      <Container className="md:my-10">
         <div className="fixed left-0 bottom-0 w-full z-10 sm:hidden">
           <AppButton
             onClick={handleAddToCart}
