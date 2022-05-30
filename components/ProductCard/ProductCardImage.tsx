@@ -15,7 +15,7 @@ export default function ProductCardImage() {
   return (
     <Image
       src={imageSrc}
-      className={`transition-all ease-in-out duration-300${className}`}
+      className={`transition-all ease-in-out duration-300 ${className}`}
       layout="responsive"
       width="100%"
       height="100%"

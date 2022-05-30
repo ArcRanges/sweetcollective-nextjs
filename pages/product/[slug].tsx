@@ -2,14 +2,17 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { message } from "antd";
 import AppButton from "components/Button";
 import Container from "components/Container";
+import HeartButton from "components/HeartButton";
+import Icon from "components/Icon";
 import ProductCard from "components/ProductCard";
 import Tabs from "components/Tabs";
 import Layout from "containers/Layout/Layout";
 import { useAuthContext } from "hooks/AuthContext";
+import { useCartContext } from "hooks/CartContext";
 import { useLayoutContext } from "hooks/LayoutContext";
 import products from "mock/products.json";
 import { client } from "pages/api/client";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import { delay, truncate } from "utils";
 import ProductInfo from "./components/ProductInfo";
 
@@ -27,9 +30,12 @@ export default function Product({ product }: ProductPageProps) {
     selectedTabIndex: 0,
   });
   const { addToCartLoading, selectedTabIndex } = state;
+  const [isLiked, setIsLiked] = useReducer((prev) => !prev, false);
   const [layoutState, setLayoutState] = useLayoutContext();
   const [authState, setAuthState] = useAuthContext();
-  const { cart } = authState;
+  const [cartState, setCartState] = useCartContext();
+  const { cart } = cartState;
+
   const relatedProducts: any = [...products].splice(0, 4);
 
   const handleAddToCart = async (id: string) => {
@@ -38,50 +44,56 @@ export default function Product({ product }: ProductPageProps) {
     setState({ ...state, addToCartLoading: false });
     setLayoutState({ ...layoutState, cartVisible: true });
 
-    // check if item id already exists
-    const item = cart.find((cartItem: any) => cartItem.id === id);
+    const item = {
+      id,
+      name: truncate(fields.title),
+      slug: fields.slug,
+      price: fields.price.toFixed(2),
+      img_url: `https:${fields?.thumbnail?.fields?.file?.url}`,
+      quantity: 1,
+    };
 
-    if (item) {
-      const newCart = cart.map((cartItem: any) =>
-        cartItem.id === id
-          ? { ...cartItem, quantity: cartItem.quantity + 1 }
-          : cartItem
-      );
-      setAuthState({
-        ...authState,
-        cart: newCart,
-      });
-    } else {
-      // not found
-      setAuthState({
-        ...authState,
-        cart: [
-          ...cart,
-          {
-            id,
-            name: truncate(fields.title),
-            price: fields.price.toFixed(2),
-            img_url: `https:${fields?.thumbnail?.fields?.file?.url}`,
-            quantity: 1,
-          },
-        ],
-      });
-    }
+    setCartState({
+      type: "ADD_TO_CART",
+      item,
+    });
+
     message.success("Added to Cart");
   };
 
   return (
     <Layout>
-      <Container className="py-10">
-        <div className="mb-10 grid md:grid-cols-2 md:gap-16">
+      <Container className="md:my-10">
+        <div className="fixed left-0 bottom-0 w-full z-10 sm:hidden">
+          <AppButton
+            onClick={handleAddToCart}
+            loading={addToCartLoading}
+            className="!border-0"
+          >
+            ADD TO CART
+          </AppButton>
+        </div>
+
+        <div className="mt-5 mb-10 grid md:grid-cols-2 md:gap-16">
           <div className="">
-            <div className="mb-4">
+            <div className="mb-4 relative">
               <img
                 src={`https:${fields?.thumbnail?.fields?.file?.url}`}
                 className="w-full"
                 height="500"
                 width="500"
               />
+              <div className="absolute bottom-4 left-4 rounded-full bg-white">
+                <HeartButton onChange={setIsLiked} checked={isLiked} />
+              </div>
+              <div className="absolute bottom-4 right-4 rounded-full bg-white">
+                <AppButton
+                  type="default"
+                  className="w-14 !border-0 !bg-transparent"
+                >
+                  <Icon name="share" />
+                </AppButton>
+              </div>
             </div>
           </div>
           <ProductInfo

@@ -1,10 +1,10 @@
 import { Row, Col } from "antd";
 import { useAuthContext } from "hooks/AuthContext";
+import { useCartContext } from "hooks/CartContext";
 import React, { useCallback } from "react";
 
 export default function CartTotal() {
-  const [authState] = useAuthContext();
-  const { cart } = authState;
+  const [{ cart }] = useCartContext();
 
   const getCartTotal = useCallback(() => {
     let total = 0;

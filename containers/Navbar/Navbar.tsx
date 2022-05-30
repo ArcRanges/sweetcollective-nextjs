@@ -1,12 +1,12 @@
 import { Badge } from "antd";
 import AppLink from "components/AppLink";
 import Icon from "components/Icon";
-import { useAuthContext } from "hooks/AuthContext";
+import { useCartContext } from "hooks/CartContext";
 import { useLayoutContext } from "hooks/LayoutContext";
 import React from "react";
 
 export default function Navbar() {
-  const [{ cart }] = useAuthContext();
+  const [{ cart }] = useCartContext();
   const [layoutState, setLayoutState] = useLayoutContext();
   const { cartVisible } = layoutState;
 

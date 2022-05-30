@@ -11,12 +11,11 @@ export default function TabSelect({
       <div className="flex flex-row justify-center">
         {options.map((opt: string, index: number) => (
           <div className="mr-10" key={index}>
-            <AppLink
-              href="#"
-              className={`${
+            <span
+              className={`pb-2 transition duration-300 ease-linear ${
                 activeTabIndex === index
-                  ? "hover:!opacity-100 border-b-2 border-yellow-700"
-                  : ""
+                  ? "hover:opacity-70  border-yellow-700 border-b-2"
+                  : " hover:border-b-2 hover:border-yellow-700"
               }`}
               onClick={() => false}
             >
@@ -28,7 +27,7 @@ export default function TabSelect({
               >
                 {opt}
               </span>
-            </AppLink>
+            </span>
           </div>
         ))}
       </div>
