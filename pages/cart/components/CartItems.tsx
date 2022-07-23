@@ -27,7 +27,7 @@ const CartItems = () => {
 
   return (
     <Col xs={24} lg={16} className="block lg:flex lg:flex-col h-60 md:h-auto">
-      <table className="table-auto w-full">
+      <table className="w-full table-auto">
         <thead className="border">
           <tr className="text-left">
             <th className="p-3">Product Details</th>
@@ -48,7 +48,7 @@ const CartItems = () => {
                 <td className="pt-3">
                   <div className="flex flex-row items-center">
                     <div className="mr-3">
-                      <Link href={`products/${item.slug}`}>
+                      <Link href={`product/${item.slug}`}>
                         <a>
                           <Image
                             src={item.img_url}
@@ -84,7 +84,7 @@ const CartItems = () => {
       </table>
       {cart.length === 0 && (
         <div className="my-auto ">
-          <div className="flex items-center justify-center flex-col h-40">
+          <div className="flex flex-col items-center justify-center h-40">
             <span>
               You currently do not have any items in your cart. Shop now.
             </span>
