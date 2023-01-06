@@ -20,6 +20,13 @@ const options = {
     [BLOCKS.PARAGRAPH]: (node: any) => {
       return <p className="article-font">{node.content[0].value}</p>;
     },
+    [BLOCKS.LIST_ITEM]: (node: any) => {
+      return (
+        <li className="ml-3 list-disc">
+          <p className="article-font">{node.content[0].content[0].value}</p>
+        </li>
+      );
+    },
   },
 };
 
@@ -31,12 +38,12 @@ export default function Post({
 }: any) {
   return (
     <Layout>
-      <Container>
+      <Container style={{ maxWidth: 600 }}>
         <PageHeader
           title={pageTitle}
-          subtitle={`Posted ${moment(createdAt).fromNow()} ${moment(
+          subtitle={`Posted ${moment(createdAt).fromNow()} on ${moment(
             createdAt
-          ).format("MMM-DD-YYYY")} `}
+          ).format("MMMM DD, YYYY")} `}
         />
         {documentToReactComponents(content, options)}
       </Container>
@@ -80,5 +87,6 @@ export async function getStaticProps({ params }) {
       createdAt: sys.createdAt,
       updatedAt: sys.updatedAt,
     },
+    revalidate: 10,
   };
 }

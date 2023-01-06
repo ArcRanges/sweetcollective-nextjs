@@ -3,7 +3,7 @@ import PageHeader from "components/PageHeader";
 import Layout from "containers/Layout/Layout";
 import { client } from "pages/api/client";
 import React from "react";
-import PostItem from "./components/PostItem";
+import PostItem from "components/PostItem";
 
 export default function index({ posts }: any) {
   return (
