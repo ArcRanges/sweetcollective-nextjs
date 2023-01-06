@@ -14,7 +14,7 @@ import products from "mock/products.json";
 import { client } from "pages/api/client";
 import { useReducer, useState } from "react";
 import { delay, truncate } from "utils";
-import ProductInfo from "./components/ProductInfo";
+import ProductInfo from "_pages/product/components/ProductInfo";
 
 interface ProductPageProps {
   product: {
@@ -64,7 +64,7 @@ export default function Product({ product }: ProductPageProps) {
   return (
     <Layout>
       <Container className="md:my-10">
-        <div className="fixed left-0 bottom-0 w-full z-10 sm:hidden">
+        <div className="fixed bottom-0 left-0 z-10 w-full sm:hidden">
           <AppButton
             onClick={handleAddToCart}
             loading={addToCartLoading}
@@ -74,19 +74,19 @@ export default function Product({ product }: ProductPageProps) {
           </AppButton>
         </div>
 
-        <div className="mt-5 mb-10 grid md:grid-cols-2 md:gap-16">
+        <div className="grid mt-5 mb-10 md:grid-cols-2 md:gap-16">
           <div className="">
-            <div className="mb-4 relative">
+            <div className="relative mb-4">
               <img
                 src={`https:${fields?.thumbnail?.fields?.file?.url}`}
                 className="w-full"
                 height="500"
                 width="500"
               />
-              <div className="absolute bottom-4 left-4 rounded-full bg-white">
+              <div className="absolute bg-white rounded-full bottom-4 left-4">
                 <HeartButton onChange={setIsLiked} checked={isLiked} />
               </div>
-              <div className="absolute bottom-4 right-4 rounded-full bg-white">
+              <div className="absolute bg-white rounded-full bottom-4 right-4">
                 <AppButton
                   type="default"
                   className="w-14 !border-0 !bg-transparent"
@@ -156,9 +156,9 @@ export default function Product({ product }: ProductPageProps) {
         </div>
 
         <div className="py-10">
-          <p className="font-bold text-xl mb-3 text-center">Related Products</p>
+          <p className="mb-3 text-xl font-bold text-center">Related Products</p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
             {relatedProducts.map(({ fields }, key) => (
               <ProductCard {...fields} key={key} />
             ))}
