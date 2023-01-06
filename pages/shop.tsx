@@ -8,7 +8,7 @@ import { client } from "pages/api/client";
 import { initalAppState, useAppState } from "pages/_app";
 import React, { useEffect, useState } from "react";
 import { delay } from "utils";
-import TagsList from "./components/TagsList";
+import TagsList from "components/TagsList";
 
 const LoadingPlaceholder = () => (
   <>
