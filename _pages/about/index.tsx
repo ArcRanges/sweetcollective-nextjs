@@ -15,7 +15,7 @@ export default function index() {
         <div className="grid md:grid-cols-2">
           <div className="block">
             <div
-              className="relative w-2/3 mx-auto overflow-hidden"
+              className="relative w-1/2 mx-auto mb-3 overflow-hidden md:mb-2 md:w-2/3"
               style={{ borderRadius: "50%" }}
             >
               <Image src={scImg} />
