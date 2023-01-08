@@ -14,7 +14,10 @@ export default function index() {
         <PageHeader title="About Me" />
         <div className="grid md:grid-cols-2">
           <div className="block">
-            <div className="w-1/2 mx-auto">
+            <div
+              className="relative w-2/3 mx-auto overflow-hidden"
+              style={{ borderRadius: "50%" }}
+            >
               <Image src={scImg} />
             </div>
           </div>
