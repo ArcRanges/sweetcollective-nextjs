@@ -24,8 +24,8 @@ export default function Navbar() {
   return (
     <div className="shadow">
       <div className="container mx-auto">
-        <div className="px-5 md:px-10 xl:px-0 py-5 flex flex-row justify-between items-center w-full">
-          <div className="flex flex-row justify-between items-center">
+        <div className="flex flex-row items-center justify-between w-full px-5 py-5 md:px-10 xl:px-0">
+          <div className="flex flex-row items-center justify-between">
             <Icon name="bars" className="md:hidden" />
             <AppLink className="!pb-0 md:pb-2 !border-0 ml-2 md:ml-0" href="/">
               <span className="text-md">SWEETCOLLECTIVECO</span>
@@ -50,7 +50,7 @@ export default function Navbar() {
               </AppLink>
               <AppLink
                 className="mx-2 text-black hover:text-black"
-                href="/about-us"
+                href="/about"
               >
                 <span className="text-md">About Us</span>
               </AppLink>

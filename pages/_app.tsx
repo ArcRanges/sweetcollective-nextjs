@@ -88,8 +88,8 @@ function MyApp({ Component, pageProps }) {
             filter: "blur(5px)",
           }}
         ></div>
-        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <p className="text-2xl text-white text-center">Opening Soon</p>
+        <div className="fixed -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+          <p className="text-2xl text-center text-white">Opening Soon</p>
           <div className="max-w-xl">
             <Input
               type="password"
@@ -100,7 +100,7 @@ function MyApp({ Component, pageProps }) {
               disabled={loading}
             />
             {isWrongPassword && (
-              <p className="mt-2 text-white text-center">
+              <p className="mt-2 text-center text-white">
                 Wrong password. Try again.
               </p>
             )}
@@ -133,6 +133,15 @@ function MyApp({ Component, pageProps }) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
         />
+        <meta
+          name="description"
+          content="Shop the latest collection of handmade clay jewelry from Sweet Collective Co. Our unique pieces are made with care and attention to detail, making them a perfect addition to any jewelry collection. From statement earrings to delicate pendants, we have something for everyone. Find the perfect piece of clay jewelry to match your personal style and make a statement wherever you go."
+        />
+        <meta
+          name="keywords"
+          content="clay jewelry, handmade jewelry, polymer clay, ceramic clay, earrings, necklaces, bracelets, rings, pendants, statement jewelry, boho jewelry, minimalist jewelry, handcrafted jewelry, unique jewelry, artisan jewelry, sustainable jewelry"
+        />
+        <title>Shop Handmade Clay Jewelry at Sweet Collective Co</title>
       </Head>
       <AuthProvider state={[authState, setAuthState]}>
         <AppProvider state={[appState, setAppState]}>

@@ -52,5 +52,6 @@ export async function getStaticProps({ params }) {
       pageTitle: page.title,
       sections: page.sections,
     },
+    revalidate: 10,
   };
 }

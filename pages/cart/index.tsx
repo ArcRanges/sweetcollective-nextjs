@@ -1,12 +1,9 @@
-import { Col, Row } from "antd";
+import { Row } from "antd";
+import CartItems from "components/CartItems";
 import Container from "components/Container";
+import OrderSummary from "components/OrderSummary";
 import PageHeader from "components/PageHeader";
-import Small from "components/Small";
 import Layout from "containers/Layout";
-import Link from "next/link";
-import React from "react";
-import CartItems from "./components/CartItems";
-import OrderSummary from "./components/OrderSummary";
 
 export default function index() {
   return (

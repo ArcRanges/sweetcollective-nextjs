@@ -10,7 +10,7 @@ interface ProductInfoProps {
 }
 
 const Title = ({ children }) => (
-  <p className="mb-3 font-bold font-sans text-2xl">{children}</p>
+  <p className="mb-3 font-sans text-2xl font-bold">{children}</p>
 );
 
 const Price = ({ children }) => (
@@ -22,23 +22,23 @@ export default function ProductInfo(fields: ProductInfoProps) {
     fields;
 
   return (
-    <div className="relative">
+    <div className="relative flex flex-col h-full">
       <Title>{title}</Title>
       <Price>{price?.toFixed(2)}</Price>
 
-      <p className="mb-3">{shortDescription}</p>
+      <div className="flex flex-col items-stretch h-full">
+        <p className="my-auto ">{shortDescription}</p>
 
-      <div className="flex justify-between mb-3">
-        <AppButton
-          onClick={handleAddToCart}
-          loading={addToCartLoading}
-          className="!bg-red-400 !border-0"
-        >
-          ADD TO CART
-        </AppButton>
-      </div>
-      <div>
-        <AppButton type="ghost">BUY NOW</AppButton>
+        <div className="mt-3 md:my-auto">
+          <AppButton
+            onClick={handleAddToCart}
+            loading={addToCartLoading}
+            className="!bg-red-400 !border-0 mb-3"
+          >
+            ADD TO CART
+          </AppButton>
+          <AppButton type="ghost">BUY NOW</AppButton>
+        </div>
       </div>
     </div>
   );

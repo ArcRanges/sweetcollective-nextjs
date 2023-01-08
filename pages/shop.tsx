@@ -8,7 +8,7 @@ import { client } from "pages/api/client";
 import { initalAppState, useAppState } from "pages/_app";
 import React, { useEffect, useState } from "react";
 import { delay } from "utils";
-import TagsList from "./components/TagsList";
+import TagsList from "components/TagsList";
 
 const LoadingPlaceholder = () => (
   <>
@@ -36,7 +36,9 @@ export default function Shop({ products = [] }: ShopPageProps) {
 
   const fetchData = async (data = {}) => {
     setState({ ...state, loading: true });
-    await delay(1000);
+
+    await delay(300);
+
     const hasFilters = Object.keys(data).length > 0;
     const payload = {
       method: "POST",
@@ -79,7 +81,7 @@ export default function Shop({ products = [] }: ShopPageProps) {
           <div className="flex flex-row items-center justify-between">
             <div className="flex items-center mr-5">
               <span
-                className="font-bold hover:opacity-70 cursor-pointer"
+                className="font-bold cursor-pointer hover:opacity-70"
                 onClick={() =>
                   setLayoutState({
                     ...layoutState,
@@ -96,7 +98,7 @@ export default function Shop({ products = [] }: ShopPageProps) {
         <TagsList />
 
         {shopProducts?.length ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-8 pb-10">
+          <div className="grid grid-cols-2 gap-2 pb-10 sm:grid-cols-3 lg:grid-cols-4 sm:gap-4 md:gap-8">
             {loading ? (
               <LoadingPlaceholder />
             ) : (
