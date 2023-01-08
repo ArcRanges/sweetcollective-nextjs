@@ -17,5 +17,6 @@ export async function getStaticProps() {
 
   return {
     props: { sections: page.sections },
+    revalidate: 10,
   };
 }
