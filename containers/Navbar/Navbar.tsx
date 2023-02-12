@@ -28,7 +28,7 @@ export default function Navbar() {
           <div className="flex flex-row items-center justify-between">
             <Icon name="bars" className="md:hidden" />
             <AppLink className="!pb-0 md:pb-2 !border-0 ml-2 md:ml-0" href="/">
-              <span className="text-md">SWEETCOLLECTIVECO</span>
+              <span className="uppercase text-md">SWEETCOLLECTIVECO</span>
             </AppLink>
           </div>
           <div className="hidden md:flex md:flex-row md:items-center">
@@ -37,28 +37,28 @@ export default function Navbar() {
                 className="mx-2 text-black hover:text-black"
                 href="/shop"
               >
-                <span className="text-md">Shop</span>
+                <span className="uppercase text-md">Shop</span>
               </AppLink>
               <AppLink
                 className="mx-2 text-black hover:text-black"
                 href="/blog"
               >
-                <span className="text-md">Blog</span>
+                <span className="uppercase text-md">Blog</span>
               </AppLink>
               <AppLink className="mx-2 text-black hover:text-black" href="/faq">
-                <span className="text-md">FAQ</span>
+                <span className="uppercase text-md">FAQ</span>
               </AppLink>
               <AppLink
                 className="mx-2 text-black hover:text-black"
                 href="/about"
               >
-                <span className="text-md">About Us</span>
+                <span className="uppercase text-md">About Us</span>
               </AppLink>
               <AppLink
                 className="ml-2 text-black hover:text-black"
                 href="/contact"
               >
-                <span className="text-md">Contact</span>
+                <span className="uppercase text-md">Contact</span>
               </AppLink>
             </div>
             <div className="flex flex-row">

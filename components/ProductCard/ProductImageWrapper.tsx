@@ -1,20 +1,45 @@
-import { Button } from "antd";
+import { Button, message } from "antd";
 import Tag from "components/Tag";
+import { useCartContext } from "hooks/CartContext";
+import { useLayoutContext } from "hooks/LayoutContext";
 import Link from "next/link";
 import React from "react";
+import { truncate } from "utils";
 import { useProductCardContext } from "./ProductCard";
 import ProductCardImage from "./ProductCardImage";
 
 export default function ProductImageWrapper() {
   const { state, handlers } = useProductCardContext();
-  const { showAddToCart, slug, tags = [] } = state;
+  const [layoutState, setLayoutState] = useLayoutContext();
+  const [cartState, setCartState] = useCartContext();
+  const { showAddToCart, ...productProps } = state;
+  const { id, slug, tags = [] } = productProps;
   const { onMouseEnter, onMouseLeave } = handlers;
 
   const href = `/product/${slug}`;
 
+  const handleAddToCart = () => {
+    const item = {
+      id,
+      name: truncate(productProps.title),
+      slug: productProps.slug,
+      price: productProps.price.toFixed(2),
+      img_url: `https:${productProps?.thumbnail?.fields?.file?.url}`,
+      quantity: 1,
+    };
+
+    setCartState({
+      type: "ADD_TO_CART",
+      item,
+    });
+
+    setLayoutState({ ...layoutState, cartVisible: true });
+    message.success("Added to Cart");
+  };
+
   return (
     <div
-      className="relative overflow-hidden mb-2"
+      className="relative mb-2 overflow-hidden"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -29,11 +54,15 @@ export default function ProductImageWrapper() {
           showAddToCart ? "" : "translate-y-10"
         }`}
       >
-        <div className="flex items-center justify-between py-1 px-3">
-          <Button type="link" className="!m-0 !p-0 !text-red-400">
+        <div className="flex items-center justify-between px-3 py-1">
+          <Button
+            type="link"
+            className="!m-0 !p-0 !text-red-400"
+            onClick={handleAddToCart}
+          >
             Add to Cart
           </Button>
-          <i className="uil uil-heart text-red-400"></i>
+          <i className="text-red-400 uil uil-heart"></i>
         </div>
       </div>
     </div>
