@@ -5,7 +5,7 @@ export default function TermsAndConditions() {
   return (
     <Layout>
       <Container className="my-5" style={{ maxWidth: 600 }}>
-        <h1 className="text-4xl">Terms and Conditions</h1>
+        <h1 className="text-2xl md:text-5xl">Terms and Conditions</h1>
 
         <p>
           {" "}

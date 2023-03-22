@@ -24,7 +24,7 @@ const ProductCardProvider = ({ children, state, handlers }: any) => {
 };
 
 const ProductContentWrapper = ({ children }) => (
-  <div className="w-auto shadow transition-all duration-300 hover:shadow-lg p-2">
+  <div className="w-auto transition-all duration-300 shadow hover:shadow-lg">
     {children}
   </div>
 );
@@ -42,9 +42,11 @@ export default function ProductCard(props: ProductItem) {
     >
       <ProductContentWrapper>
         <ProductImageWrapper />
-        <ProductTitle />
-        <ProductRating />
-        <ProductPrice />
+        <div className="px-2">
+          <ProductTitle />
+          <ProductRating />
+          <ProductPrice />
+        </div>
       </ProductContentWrapper>
     </ProductCardProvider>
   );

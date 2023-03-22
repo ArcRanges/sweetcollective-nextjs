@@ -6,7 +6,7 @@ export default function RefundPolicy() {
   return (
     <Layout>
       <Container className="my-5" style={{ maxWidth: 600 }}>
-        <h1 className="text-4xl">Refund Policy</h1>
+        <h1 className="text-2xl md:text-5xl">Refund Policy</h1>
         <p>
           At Sweet Collective Co., we want you to be completely satisfied with
           your purchase. If for any reason you are not satisfied with your

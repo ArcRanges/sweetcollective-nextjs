@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
   return (
     <Layout>
       <Container className="my-5" style={{ maxWidth: 600 }}>
-        <h1 className="text-4xl">Privacy Policy</h1>
+        <h1 className="text-2xl md:text-5xl">Privacy Policy</h1>
         <p>
           Sweet Collective Co. ("we", "us", "our") is committed to protecting
           the privacy of our customers ("you", "your"). This Privacy Policy

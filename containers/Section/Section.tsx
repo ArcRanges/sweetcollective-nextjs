@@ -30,7 +30,9 @@ export default function Section({
                   {title}
                 </Small>
               )}
-              {heading && <h1 className="text-5xl mb-4 w-2/3">{heading}</h1>}
+              {heading && (
+                <h1 className="mb-4 text-2xl md:text-5xl">{heading}</h1>
+              )}
               {content && <div>{documentToReactComponents(content)}</div>}
 
               {buttonLink && buttonText && (
@@ -39,7 +41,7 @@ export default function Section({
                     <button
                       onMouseEnter={onMouseEnter}
                       onMouseLeave={onMouseLeave}
-                      className="bg-black text-white py-2 px-4 hover:opacity-50 "
+                      className="px-4 py-2 text-white bg-black hover:opacity-50 "
                     >
                       <div className="flex flex-row items-center">
                         <Small className="mb-0">{buttonText}</Small>
