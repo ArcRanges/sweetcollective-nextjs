@@ -7,13 +7,13 @@ export default function PrivacyPolicy() {
       <Container className="my-5" style={{ maxWidth: 600 }}>
         <h1 className="text-2xl md:text-5xl">Privacy Policy</h1>
         <p>
-          Sweet Collective Co. ("we", "us", "our") is committed to protecting
-          the privacy of our customers ("you", "your"). This Privacy Policy
-          ("Policy") describes the types of personal information we collect, how
-          we use and share it, and the choices you can make about our
-          collection, use and sharing of your personal information. We encourage
-          you to read this Policy carefully and contact us if you have any
-          questions or concerns.
+          Sweet Collective Co. (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;)
+          is committed to protecting the privacy of our customers
+          (&quot;you&quot;, &quot;your&quot;). This Privacy Policy ("Policy")
+          describes the types of personal information we collect, how we use and
+          share it, and the choices you can make about our collection, use and
+          sharing of your personal information. We encourage you to read this
+          Policy carefully and contact us if you have any questions or concerns.
         </p>
 
         <h2 className="text-xl">Information We Collect</h2>

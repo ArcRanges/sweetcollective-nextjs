@@ -13,7 +13,7 @@ export default function index({ faqs }) {
       <Container className="px-5 py-10">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {faqs.map((faq: any, i: number) => (
-            <div>
+            <div key={i}>
               <p className="font-bold" key={i}>
                 {faq.fields.title}
               </p>

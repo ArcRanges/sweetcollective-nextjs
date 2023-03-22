@@ -36,7 +36,7 @@ export default function RefundPolicy() {
         <p>The following items are non-refundable:</p>
 
         <ul className="list-disc">
-          <li className="ml-4">Items marked as "final sale"</li>
+          <li className="ml-4">Items marked as &quot;final sale&quot;</li>
           <li className="ml-4">Items that have been worn, used, or altered</li>
           <li className="ml-4">Items that have been damaged due to misuse</li>
           <li className="ml-4">

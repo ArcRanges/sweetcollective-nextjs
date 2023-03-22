@@ -9,11 +9,11 @@ export default function TermsAndConditions() {
 
         <p>
           {" "}
-          Welcome to Sweet Collective Co.'s website (the "Website"). By
-          accessing or using our Website, you agree to be bound by the following
-          terms and conditions (the "Terms and Conditions"). If you do not agree
-          to these Terms and Conditions, you should not access or use our
-          Website.
+          Welcome to Sweet Collective Co.'s website (the &quot;Website&quot;).
+          By accessing or using our Website, you agree to be bound by the
+          following terms and conditions (the &quot;Terms and Conditions&quot;).
+          If you do not agree to these Terms and Conditions, you should not
+          access or use our Website.
         </p>
 
         <h4 className="text-xl">Use of the Website</h4>
@@ -34,8 +34,9 @@ export default function TermsAndConditions() {
           </li>
           <li className="mb-2 ml-4">
             To transmit, or procure the sending of, any advertising or
-            promotional material, including any "junk mail," "chain letter,"
-            "spam," or any other similar solicitation.
+            promotional material, including any &quot;junk mail,&quot;
+            &quot;chain letter,&quot; &quot;spam,&quot; or any other similar
+            solicitation.
           </li>
           <li className="mb-2 ml-4">
             To impersonate or attempt to impersonate Sweet Collective Co., a
@@ -66,8 +67,8 @@ export default function TermsAndConditions() {
         <p>
           The Website may allow users to post reviews, comments, and other
           content; send communications; and submit suggestions, ideas, comments,
-          questions, or other information (collectively, "User Contributions").
-          User Contributions must not:
+          questions, or other information (collectively, &quot;User
+          Contributions&quot;). User Contributions must not:
         </p>
 
         <ul className="list-disc">
@@ -166,7 +167,7 @@ export default function TermsAndConditions() {
         <h4 className="text-xl">Disclaimers and Limitation of Liability</h4>
 
         <p>
-          The Website is provided "as is" and "as available" and Sweet
+          The Website is provided &quot;as is&quot; and "as available" and Sweet
           Collective Co. makes no representation or warranty of any kind,
           express or implied, as to the operation of the Website, the
           information, content, materials, or products included on the Website.
