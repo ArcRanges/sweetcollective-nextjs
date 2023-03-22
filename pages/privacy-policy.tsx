@@ -9,11 +9,12 @@ export default function PrivacyPolicy() {
         <p>
           Sweet Collective Co. (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;)
           is committed to protecting the privacy of our customers
-          (&quot;you&quot;, &quot;your&quot;). This Privacy Policy ("Policy")
-          describes the types of personal information we collect, how we use and
-          share it, and the choices you can make about our collection, use and
-          sharing of your personal information. We encourage you to read this
-          Policy carefully and contact us if you have any questions or concerns.
+          (&quot;you&quot;, &quot;your&quot;). This Privacy Policy
+          (&quot;Policy&quot;) describes the types of personal information we
+          collect, how we use and share it, and the choices you can make about
+          our collection, use and sharing of your personal information. We
+          encourage you to read this Policy carefully and contact us if you have
+          any questions or concerns.
         </p>
 
         <h2 className="text-xl">Information We Collect</h2>

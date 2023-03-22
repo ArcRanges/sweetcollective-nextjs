@@ -8,12 +8,11 @@ export default function TermsAndConditions() {
         <h1 className="text-2xl md:text-5xl">Terms and Conditions</h1>
 
         <p>
-          {" "}
-          Welcome to Sweet Collective Co.'s website (the &quot;Website&quot;).
-          By accessing or using our Website, you agree to be bound by the
-          following terms and conditions (the &quot;Terms and Conditions&quot;).
-          If you do not agree to these Terms and Conditions, you should not
-          access or use our Website.
+          Welcome to Sweet Collective Co.&apos;s website (the
+          &quot;Website&quot;). By accessing or using our Website, you agree to
+          be bound by the following terms and conditions (the &quot;Terms and
+          Conditions&quot;). If you do not agree to these Terms and Conditions,
+          you should not access or use our Website.
         </p>
 
         <h4 className="text-xl">Use of the Website</h4>
@@ -44,10 +43,10 @@ export default function TermsAndConditions() {
             entity.
           </li>
           <li className="mb-2 ml-4">
-            To engage in any other conduct that restricts or inhibits anyone's
-            use or enjoyment of the Website, or which, as determined by Sweet
-            Collective Co., may harm Sweet Collective Co. or users of the
-            Website or expose them to liability.
+            To engage in any other conduct that restricts or inhibits
+            anyone&apos;s use or enjoyment of the Website, or which, as
+            determined by Sweet Collective Co., may harm Sweet Collective Co. or
+            users of the Website or expose them to liability.
           </li>
         </ul>
 
@@ -89,7 +88,7 @@ export default function TermsAndConditions() {
             property right.
           </li>
           <li className="mb-2 ml-4">
-            Promote any illegal or unauthorized copy of another person's
+            Promote any illegal or unauthorized copy of another person&apos;s
             copyrighted work.
           </li>
           <li className="mb-2 ml-4">
@@ -103,8 +102,8 @@ export default function TermsAndConditions() {
 
         <p>
           To access certain features of the Website, you will need to create an
-          account. You may never use another's account without permission. When
-          creating your account, you must provide accurate and complete
+          account. You may never use another&apos;s account without permission.
+          When creating your account, you must provide accurate and complete
           information. You are solely responsible for the activity that occurs
           on your account, and you must keep your account password secure. You
           must notify Sweet Collective Co. immediately of any breach of security
@@ -167,9 +166,9 @@ export default function TermsAndConditions() {
         <h4 className="text-xl">Disclaimers and Limitation of Liability</h4>
 
         <p>
-          The Website is provided &quot;as is&quot; and "as available" and Sweet
-          Collective Co. makes no representation or warranty of any kind,
-          express or implied, as to the operation of the Website, the
+          The Website is provided &quot;as is&quot; and &quot;as available&quot;
+          and Sweet Collective Co. makes no representation or warranty of any
+          kind, express or implied, as to the operation of the Website, the
           information, content, materials, or products included on the Website.
           To the full extent permissible by applicable law, Sweet Collective Co.
           disclaims all warranties, express or implied, including but not
