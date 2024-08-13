@@ -71,7 +71,7 @@ export default function Navbar() {
                   onClick={toggleCart}
                 />
               </Badge>
-              <Icon name="user" className="ml-3 cursor-pointer" />
+              {/* <Icon name="user" className="ml-3 cursor-pointer" /> */}
             </div>
           </div>
         </div>

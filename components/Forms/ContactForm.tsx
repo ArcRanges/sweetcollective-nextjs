@@ -20,26 +20,23 @@ export default function ContactForm() {
       <AppSpin spinning={loading}>
         <Form layout="vertical" form={form} onFinish={handleFormSubmit}>
           <Form.Item
-            name="first_name"
-            label="First Name"
-            rules={[{ required: true }]}
+            name="name"
+            label="Name"
+            rules={[{ required: true, message: "Name is required" }]}
           >
             <Input />
           </Form.Item>
           <Form.Item
-            name="last_name"
-            label="Last Name"
-            rules={[{ required: true }]}
+            name="email"
+            label="Email"
+            rules={[{ required: true, message: "Email is required" }]}
           >
-            <Input />
-          </Form.Item>
-          <Form.Item name="email" label="Email" rules={[{ required: true }]}>
             <Input type="email" />
           </Form.Item>
           <Form.Item
             name="message"
             label="Message"
-            rules={[{ required: true }]}
+            rules={[{ required: true, message: "Message is required" }]}
           >
             <TextArea />
           </Form.Item>
