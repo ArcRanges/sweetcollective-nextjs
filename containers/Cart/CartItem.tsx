@@ -33,8 +33,11 @@ export default function CartItem({
           <Col xs={12}>Color: {color}</Col>
         </Row> */}
         <Row className="mt-2">
-          <Col xs={12}>
-            <h4 className="text-lg font-bold">${price}</h4>
+          <Col xs={24}>
+            <div className="flex flex-row justify-between align-center">
+              <span className="font-bold ">${price}</span>
+              <span>Qty: {quantity}</span>
+            </div>
           </Col>
         </Row>
       </Col>
