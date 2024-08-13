@@ -17,32 +17,32 @@ export default function CartItem({
   handleChangeQuantity,
 }: any) {
   return (
-    <Row key={id} className={`relative p-3 ${className}`}>
-      <Icon
-        name="times"
-        className="text-red-500 absolute -top-3 -right-3 cursor-pointer"
-        onClick={() => handleRemove(id)}
-      />
+    <Row key={id} className={`relative border-b ${className}`}>
       <Col xs={8} className="p-3">
         <Image src={img_url} height="300" width="300" layout="responsive" />
       </Col>
       <Col xs={16} className="p-3">
-        <h4 className="font-bold text-xl">{name}</h4>
-        <Row>
+        <h4>{name}</h4>
+        <Icon
+          name="times"
+          className="absolute right-0 text-gray-500 cursor-pointer top-2"
+          onClick={() => handleRemove(id)}
+        />
+        {/* <Row>
           <Col xs={12}>Size: {size}</Col>
           <Col xs={12}>Color: {color}</Col>
-        </Row>
+        </Row> */}
         <Row className="mt-2">
           <Col xs={12}>
-            <h4 className="font-bold text-lg">${price}</h4>
+            <h4 className="text-lg font-bold">${price}</h4>
           </Col>
         </Row>
       </Col>
-      <Col xs={24}>
+      {/* <Col xs={24}>
         <div className="flex flex-row items-center justify-around">
           <Icon
             name="plus"
-            className="ml-auto cursor-pointer text-blue-500 hover:opacity-70"
+            className="ml-auto text-blue-500 cursor-pointer hover:opacity-70"
             onClick={() => handleChangeQuantity(id, "INC")}
           />
           <div className="w-1/2 mx-auto">
@@ -57,11 +57,11 @@ export default function CartItem({
           </div>
           <Icon
             name="minus"
-            className="mr-auto cursor-pointer text-blue-500 hover:opacity-70"
+            className="mr-auto text-blue-500 cursor-pointer hover:opacity-70"
             onClick={() => handleChangeQuantity(id, "DEC")}
           />
         </div>
-      </Col>
+      </Col> */}
     </Row>
   );
 }
