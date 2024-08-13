@@ -56,9 +56,8 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="my-5 text-xs text-center text-gray-200">
-            Copyright (C) {new Date().getFullYear()} by Arc Ranges. All Rights
-            Reserved.
+          <p className="my-3 text-xs text-center text-gray-200">
+            Made with 💙 by Arc Ranges
           </p>
         </div>
       </div>
