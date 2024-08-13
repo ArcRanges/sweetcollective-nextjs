@@ -6,7 +6,9 @@ export default function Footer() {
       <div className="container mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4">
           <div className="footer-col">
-            <h4 className="text-xs uppercase mb-2">Categories</h4>
+            <h4 className="mb-2 text-xs font-bold text-white uppercase">
+              Categories
+            </h4>
             <ul className="footer-links-container">
               <li>Bridal Jewelry</li>
               <li>Rings</li>
@@ -15,8 +17,10 @@ export default function Footer() {
               <li>Non-binary</li>
             </ul>
           </div>
-          <div className="footer-col mb-2 md:mb-0">
-            <h4 className="text-xs uppercase mb-2">Services</h4>
+          <div className="mb-2 footer-col md:mb-0">
+            <h4 className="mb-2 text-xs font-bold text-white uppercase">
+              Services
+            </h4>
             <ul className="footer-links-container">
               <li>Bridal Jewelry</li>
               <li>Rings</li>
@@ -26,7 +30,9 @@ export default function Footer() {
             </ul>
           </div>
           <div className="footer-col">
-            <h4 className="text-xs uppercase mb-2">Apply for Credit</h4>
+            <h4 className="mb-2 text-xs font-bold text-white uppercase">
+              Apply for Credit
+            </h4>
             <ul className="footer-links-container">
               <li>Bridal Jewelry</li>
               <li>Rings</li>
@@ -35,8 +41,10 @@ export default function Footer() {
               <li>Non-binary</li>
             </ul>
           </div>
-          <div className="footer-col mb-2 md:mb-0">
-            <h4 className="text-xs uppercase mb-2">Contact Us</h4>
+          <div className="mb-2 footer-col md:mb-0">
+            <h4 className="mb-2 text-xs font-bold text-white uppercase">
+              Contact Us
+            </h4>
             <ul className="footer-links-container">
               <li>Bridal Jewelry</li>
               <li>Rings</li>
@@ -48,8 +56,9 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="text-xs text-gray-200 text-center my-5">
-            Copyright (C) 2022 by Arc Ranges. All Rights Reserved.
+          <p className="my-5 text-xs text-center text-gray-200">
+            Copyright (C) {new Date().getFullYear()} by Arc Ranges. All Rights
+            Reserved.
           </p>
         </div>
       </div>
