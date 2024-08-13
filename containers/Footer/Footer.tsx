@@ -12,9 +12,9 @@ export default function Footer() {
             <ul className="footer-links-container">
               <li>Bridal Jewelry</li>
               <li>Rings</li>
-              <li>Women</li>
-              <li>Men</li>
-              <li>Non-binary</li>
+              <li>Necklaces</li>
+              <li>Earrings</li>
+              <li>Watches</li>
             </ul>
           </div>
           <div className="mb-2 footer-col md:mb-0">
@@ -22,11 +22,11 @@ export default function Footer() {
               Services
             </h4>
             <ul className="footer-links-container">
-              <li>Bridal Jewelry</li>
-              <li>Rings</li>
-              <li>Women</li>
-              <li>Men</li>
-              <li>Non-binary</li>
+              <li>Custom Design</li>
+              <li>Jewelry Repair</li>
+              <li>Engraving</li>
+              <li>Appraisal</li>
+              <li>Cleaning & Maintenance</li>
             </ul>
           </div>
           <div className="footer-col">
@@ -34,11 +34,11 @@ export default function Footer() {
               Apply for Credit
             </h4>
             <ul className="footer-links-container">
-              <li>Bridal Jewelry</li>
-              <li>Rings</li>
-              <li>Women</li>
-              <li>Men</li>
-              <li>Non-binary</li>
+              <li>Financing Options</li>
+              <li>Credit Application</li>
+              <li>Special Offers</li>
+              <li>Loyalty Program</li>
+              <li>Gift Cards</li>
             </ul>
           </div>
           <div className="mb-2 footer-col md:mb-0">
@@ -46,11 +46,11 @@ export default function Footer() {
               Contact Us
             </h4>
             <ul className="footer-links-container">
-              <li>Bridal Jewelry</li>
-              <li>Rings</li>
-              <li>Women</li>
-              <li>Men</li>
-              <li>Non-binary</li>
+              <li>Customer Service</li>
+              <li>Store Locations</li>
+              <li>FAQs</li>
+              <li>Returns & Exchanges</li>
+              <li>Shipping Information</li>
             </ul>
           </div>
         </div>
