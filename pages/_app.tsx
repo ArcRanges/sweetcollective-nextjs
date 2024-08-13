@@ -52,25 +52,25 @@ function MyApp({ Component, pageProps }) {
   const setAuthenticated = (authenticated: boolean) =>
     setAuthState({ ...authState, authenticated });
 
-  const handleAppCheckPassword = async () => {
-    setLoading(true);
-    setIsWrongPassword(false);
-    try {
-      await delay(1000);
-      const response = await fetch("/api/validate-session", {
-        method: "POST",
-        body: JSON.stringify({ password }),
-      });
-      const { authenticated } = await response.json();
+  // const handleAppCheckPassword = async () => {
+  //   setLoading(true);
+  //   setIsWrongPassword(false);
+  //   try {
+  //     await delay(1000);
+  //     const response = await fetch("/api/validate-session", {
+  //       method: "POST",
+  //       body: JSON.stringify({ password }),
+  //     });
+  //     const { authenticated } = await response.json();
 
-      setAuthenticated(authenticated);
-      setIsWrongPassword(!authenticated);
-      setLoading(false);
-    } catch (error: any) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
+  //     setAuthenticated(authenticated);
+  //     setIsWrongPassword(!authenticated);
+  //     setLoading(false);
+  //   } catch (error: any) {
+  //     console.log(error);
+  //     setLoading(false);
+  //   }
+  // };
 
   useEffect(() => {
     setAppLoading(false);
@@ -78,45 +78,45 @@ function MyApp({ Component, pageProps }) {
 
   if (appLoading) return null;
 
-  if (!authenticated) {
-    return (
-      <>
-        <div
-          className="h-screen"
-          style={{
-            backgroundImage: `url('https://images.pexels.com/photos/9509654/pexels-photo-9509654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')`,
-            filter: "blur(5px)",
-          }}
-        ></div>
-        <div className="fixed -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-          <p className="text-2xl text-center text-white">Opening Soon</p>
-          <div className="max-w-xl">
-            <Input
-              type="password"
-              placeholder="Input page password"
-              className="!max-w-xl !bg-transparent !p-5 text-center !text-white"
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleAppCheckPassword()}
-              disabled={loading}
-            />
-            {isWrongPassword && (
-              <p className="mt-2 text-center text-white">
-                Wrong password. Try again.
-              </p>
-            )}
-            <Button
-              type="primary"
-              className="mt-2 !p-7 w-full !flex !items-center !justify-center !text-black !border-white !bg-white"
-              onClick={() => handleAppCheckPassword()}
-              loading={loading}
-            >
-              Submit
-            </Button>
-          </div>
-        </div>
-      </>
-    );
-  }
+  // if (!authenticated) {
+  //   return (
+  //     <>
+  //       <div
+  //         className="h-screen"
+  //         style={{
+  //           backgroundImage: `url('https://images.pexels.com/photos/9509654/pexels-photo-9509654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')`,
+  //           filter: "blur(5px)",
+  //         }}
+  //       ></div>
+  //       <div className="fixed -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+  //         <p className="text-2xl text-center text-white">Opening Soon</p>
+  //         <div className="max-w-xl">
+  //           <Input
+  //             type="password"
+  //             placeholder="Input page password"
+  //             className="!max-w-xl !bg-transparent !p-5 text-center !text-white"
+  //             onChange={(e) => setPassword(e.target.value)}
+  //             onKeyDown={(e) => e.key === "Enter" && handleAppCheckPassword()}
+  //             disabled={loading}
+  //           />
+  //           {isWrongPassword && (
+  //             <p className="mt-2 text-center text-white">
+  //               Wrong password. Try again.
+  //             </p>
+  //           )}
+  //           <Button
+  //             type="primary"
+  //             className="mt-2 !p-7 w-full !flex !items-center !justify-center !text-black !border-white !bg-white"
+  //             onClick={() => handleAppCheckPassword()}
+  //             loading={loading}
+  //           >
+  //             Submit
+  //           </Button>
+  //         </div>
+  //       </div>
+  //     </>
+  //   );
+  // }
 
   return (
     <>
