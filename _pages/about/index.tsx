@@ -13,14 +13,14 @@ export default function index() {
       <Container className="px-5">
         <PageHeader title="About Me" />
         <div className="grid md:grid-cols-2">
-          <div className="block">
+          {/* <div className="block">
             <div
               className="relative w-1/2 mx-auto mb-3 overflow-hidden md:mb-2 md:w-2/3"
               style={{ borderRadius: "50%" }}
             >
               <Image src={scImg} />
             </div>
-          </div>
+          </div> */}
           <div>
             <p className="mb-3">
               Hi there! My name is Sweetcel and I am the founder of Sweet
