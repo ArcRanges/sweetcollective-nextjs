@@ -7,7 +7,7 @@ export default function ProductCollection({ title, subtitle, products }: any) {
   return (
     <div className="md:px-10">
       <Container className="px-0 my-10">
-        <div className="px-5">
+        <div>
           <h1 className="text-2xl md:text-5xl">
             {title || "Untitled Section"}
           </h1>

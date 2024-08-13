@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
 
 html,
 body {
@@ -29,7 +29,7 @@ h1 {
 }
 
 .article-font {
-  font-family: 'Noto Serif', serif;
+  font-family: "Noto Serif", serif;
   font-size: 1.5em;
 }
 /* THEME STYLES */
@@ -86,4 +86,10 @@ h1 {
 }
 input.no-border {
   border: 0 !important;
+}
+
+.rochester-regular {
+  font-family: "Rochester", cursive;
+  font-weight: 400;
+  font-style: normal;
 }

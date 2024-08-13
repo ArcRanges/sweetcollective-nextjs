@@ -1,18 +1,15 @@
-import "../styles/globals.css";
 import "antd/dist/antd.css";
+import "../styles/globals.css";
 import "../styles/heart.css";
 
 import "containers/Footer/Footer.css";
-import Head from "next/head";
-import { useEffect, useReducer, useState } from "react";
-import { Button, Input } from "antd";
-import { delay } from "utils";
-import AuthProvider from "hooks/AuthContext";
-import LayoutProvider from "hooks/LayoutContext";
-import cartItems from "mock/cart.json";
 import AppProvider from "hooks/AppContext";
-import createPersistedState from "packages/use-persisted-state";
+import AuthProvider from "hooks/AuthContext";
 import CartProvider, { cartReducer } from "hooks/CartContext";
+import LayoutProvider from "hooks/LayoutContext";
+import Head from "next/head";
+import createPersistedState from "packages/use-persisted-state";
+import { useEffect, useState } from "react";
 
 export const useAppState = createPersistedState("app");
 const useAuthState = createPersistedState("auth");
@@ -142,6 +139,17 @@ function MyApp({ Component, pageProps }) {
           content="clay jewelry, handmade jewelry, polymer clay, ceramic clay, earrings, necklaces, bracelets, rings, pendants, statement jewelry, boho jewelry, minimalist jewelry, handcrafted jewelry, unique jewelry, artisan jewelry, sustainable jewelry"
         />
         <title>Shop Handmade Clay Jewelry at Sweet Collective Co</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="crossOrigin"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Kavoon&family=Rochester&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <AuthProvider state={[authState, setAuthState]}>
         <AppProvider state={[appState, setAppState]}>

@@ -28,7 +28,9 @@ export default function Navbar() {
           <div className="flex flex-row items-center justify-between">
             <Icon name="bars" className="md:hidden" />
             <AppLink className="!pb-0 md:pb-2 !border-0 ml-2 md:ml-0" href="/">
-              <span className="uppercase text-md">SWEETCOLLECTIVECO</span>
+              <span className="text-2xl text-black rochester-regular">
+                Sweet Collective Co.
+              </span>
             </AppLink>
           </div>
           <div className="hidden md:flex md:flex-row md:items-center">
