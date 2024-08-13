@@ -67,6 +67,7 @@ export default function Shop({ products = [] }: ShopPageProps) {
       setAppState({ ...appState, shopFilters: initalAppState?.shopFilters });
     };
   }, []);
+  console.log("🚀 ~ useEffect ~ shopProducts:", shopProducts);
 
   useEffect(() => {
     fetchData({ filters: appState?.shopFilters ?? {} });
@@ -103,8 +104,8 @@ export default function Shop({ products = [] }: ShopPageProps) {
               <LoadingPlaceholder />
             ) : (
               <>
-                {shopProducts.map(({ fields }, index: number) => (
-                  <ProductCard {...fields} key={index} />
+                {shopProducts.map(({ fields, sys }, index: number) => (
+                  <ProductCard {...fields} {...sys} key={index} />
                 ))}
               </>
             )}
