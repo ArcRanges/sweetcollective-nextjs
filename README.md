@@ -2,17 +2,23 @@
 
 A store writte in in NextJS + Contentful, made for clay jewerly maker, SweetCollectiveCo.
 
-[`View Live Demo here (in progress)`](https://sweetcollective.vercel.app/)
-
-Use the store password: SweetCollective2022
+[`View Live Demo`](https://sweetcollective.vercel.app/)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+Make sure you have .env file
+
+```
+CONTENTFUL_SPACE_ID=
+CONTENTFUL_ACCESS_TOKEN=
+```
+
+Then, install packages before running the development server:
 
 ```bash
+npm install
 npm run dev
 # or
 yarn dev
