@@ -10,7 +10,7 @@ export default function index({ posts }: any) {
     <Layout>
       <Container>
         <PageHeader title="Blog" />
-        <div className="grid grid-cols-3 gap-8 py-3">
+        <div className="grid grid-cols-3 gap-8 py-4">
           {posts?.map(({ fields, sys }: any, key: number) => (
             <PostItem
               key={key}
